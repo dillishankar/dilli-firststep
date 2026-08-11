@@ -31,7 +31,7 @@
                 <li><a href="#Whyus" class="nav-link">Why Us</a></li>
                 <li><a href="#ourwork" class="nav-link">Work</a></li>
                 <li><a href="#pricing" class="nav-link">Pricing</a></li>
-                <li><a href="#" class="nav-link">Admin</a></li>
+                <li><a href="#mywork" class="nav-link">View Work</a></li>
                 <li><a href="#f&q" class="nav-link">FAQ</a></li>
             </ul>
 
@@ -70,8 +70,83 @@
             </div>
         </section>
 
+        <!-- PRO DUAL-OPTION GLASS NOTIFICATION WIDGET -->
+        <div class="pro-whatsapp-widget">
+
+            <!-- Frosted Glass Card -->
+            <div class="pro-whatsapp-popup glass-card-theme" id="whatsappPopup">
+                <button onclick="closeWhatsApp()" class="popup-close-btn" aria-label="Close notification">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="popup-header">
+                    <div class="popup-avatar-group">
+                        <img src="data/IMG_20260608_185546.png" class="popup-avatar-img" alt="Dilli Shankar" />
+                        <span class="active-pulse"></span>
+                    </div>
+                    <div class="popup-meta">
+                        <span class="popup-sender">Dilli Shankar</span>
+                        <span class="popup-status"><i class="fa-solid fa-circle text-green"></i> Online & Ready to
+                            Help</span>
+                    </div>
+                </div>
+
+                <!-- Tab Option Switcher -->
+                <div class="notif-tab-switcher">
+                    <button class="notif-tab active" id="tabChatBtn" onclick="switchNotifTab('chat')">
+                        <i class="fa-brands fa-whatsapp"></i> Direct Chat
+                    </button>
+                    <button class="notif-tab" id="tabFormBtn" onclick="switchNotifTab('form')">
+                        <i class="fa-solid fa-paper-plane"></i> Quick Inquiry
+                    </button>
+                </div>
+
+                <!-- View 1: Direct WhatsApp Chat -->
+                <div class="notif-tab-content active" id="notifChatView">
+                    <div class="popup-body">
+                        <p class="popup-message">
+                            👋 Hey there! Have a question about your project? Chat directly on WhatsApp.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/918825858292?text=Hi%2C%20I%20would%20like%20to%20discuss%20building%20a%20website!"
+                        target="_blank" rel="noopener noreferrer" class="popup-cta-btn wa-bg">
+                        <span>Start WhatsApp Chat</span>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- View 2: Lead Submission Form (Google Apps Script) -->
+                <div class="notif-tab-content" id="notifFormView">
+                    <form id="leadCaptureForm" onsubmit="handleLeadSubmit(event)" class="notif-form">
+                        <div class="form-group-sm">
+                            <input type="text" id="leadName" name="Name" placeholder="Your Name" required
+                                class="notif-input" />
+                        </div>
+                        <div class="form-group-sm">
+                            <input type="tel" id="leadPhone" name="Phone" placeholder="WhatsApp Number" required
+                                class="notif-input" />
+                        </div>
+                        <button type="submit" class="popup-cta-btn blue-bg" id="leadSubmitBtn">
+                            <span>Submit Inquiry</span>
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                        <div id="formSuccessMsg" class="form-success-alert"></div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Floating Circular Face Trigger -->
+            <a href="javascript:void(0)" onclick="toggleNotificationCard()" class="pro-whatsapp-btn"
+                aria-label="Contact Dilli Shankar">
+                <img src="data/IMG_20260608_185546.png" class="trigger-face-avatar" alt="Dilli Shankar Profile" />
+                <span class="btn-wa-icon-badge"><i class="fa-brands fa-whatsapp"></i></span>
+                <span class="btn-unread-badge">1</span>
+            </a>
+
+        </div>
+
         <!-- SHOWCASE / VIDEO SECTION -->
-        <section class="showcase-section">
+        <section id="mywork" class="showcase-section">
             <div class="showcase-wrapper">
 
                 <!-- Floating Accent Badges -->
@@ -109,189 +184,218 @@
         </section>
 
         <!-- HOW WE WORK SECTION -->
-<section id=ourwork class="how-it-works-section" id="how-we-work">
-    <div class="how-it-works-container">
-        
-        <!-- Header -->
-        <div class="how-it-works-header">
-            <div class="header-left">
-                <span class="badge-pill">
-                    <i class="fa-solid fa-sparkles"></i> Process
-                </span>
-                <h2 class="section-title">How We <em class="highlight-blue-italic">Work</em></h2>
+        <section id=ourwork class="how-it-works-section" id="how-we-work">
+            <div class="how-it-works-container">
+
+                <!-- Header -->
+                <div class="how-it-works-header">
+                    <div class="header-left">
+                        <span class="badge-pill">
+                            <i class="fa-solid fa-sparkles"></i> Process
+                        </span>
+                        <h2 class="section-title">How We <em class="highlight-blue-italic">Work</em></h2>
+                    </div>
+                    <div class="header-right">
+                        <p class="section-desc">
+                            From your first idea to a live website, we keep the process simple and transparent. We
+                            understand what you need, guide you through decisions, and build your website step by step.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Infinite Auto-Scrolling Glass Track -->
+                <div class="process-carousel-wrapper">
+                    <div class="process-cards-track">
+
+                        <!-- Set 1 (Original) -->
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">01.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                </div>
+                                <h3 class="card-title">Understand Your Goal</h3>
+                                <p class="card-text">First, we understand why you need a website and what you want it to
+                                    achieve. Based on your business and goals, we'll share our suggestions and help you
+                                    decide the right direction.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">02.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </div>
+                                <h3 class="card-title">Understand Your Requirements</h3>
+                                <p class="card-text">You don't need to be a website expert. Tell us what you have in
+                                    mind — even if you're not sure what you need. We'll explain the options and help you
+                                    figure it out.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">03.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-bezier-curve"></i>
+                                </div>
+                                <h3 class="card-title">Design Your Website</h3>
+                                <p class="card-text">Once we understand your requirements, we create the visual design
+                                    and overall look. We'll make sure the design matches your business and customer
+                                    experience goals.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">04.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <h3 class="card-title">Prepare Your Content</h3>
+                                <p class="card-text">After the design is clear, we'll work on the content your website
+                                    needs — text, images, services, business information — and organize everything
+                                    properly.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">05.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3 class="card-title">Bring Design to Life</h3>
+                                <p class="card-text">Once design and content are ready, we move into development and
+                                    build the responsive front-end so your website works smoothly across mobile, tablet,
+                                    and desktop.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">06.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h3 class="card-title">Add Smart Functionality</h3>
+                                <p class="card-text">We can add useful features using Google Apps Script — such as
+                                    contact form submissions, email notifications, and sending enquiry data directly to
+                                    Google Sheets.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card">
+                            <span class="card-step-num">07.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </div>
+                                <h3 class="card-title">Launch Your Website</h3>
+                                <p class="card-text">Once everything is tested and you're happy with the result, we'll
+                                    help get your website live with the appropriate hosting and deployment setup based
+                                    on your requirements.</p>
+                            </div>
+                        </div>
+
+                        <!-- Set 2 (Duplicated for Seamless Infinite Loop) -->
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">01.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                </div>
+                                <h3 class="card-title">Understand Your Goal</h3>
+                                <p class="card-text">First, we understand why you need a website and what you want it to
+                                    achieve. Based on your business and goals, we'll share our suggestions and help you
+                                    decide the right direction.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">02.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </div>
+                                <h3 class="card-title">Understand Your Requirements</h3>
+                                <p class="card-text">You don't need to be a website expert. Tell us what you have in
+                                    mind — even if you're not sure what you need. We'll explain the options and help you
+                                    figure it out.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">03.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-bezier-curve"></i>
+                                </div>
+                                <h3 class="card-title">Design Your Website</h3>
+                                <p class="card-text">Once we understand your requirements, we create the visual design
+                                    and overall look. We'll make sure the design matches your business and customer
+                                    experience goals.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">04.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <h3 class="card-title">Prepare Your Content</h3>
+                                <p class="card-text">After the design is clear, we'll work on the content your website
+                                    needs — text, images, services, business information — and organize everything
+                                    properly.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">05.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3 class="card-title">Bring Design to Life</h3>
+                                <p class="card-text">Once design and content are ready, we move into development and
+                                    build the responsive front-end so your website works smoothly across mobile, tablet,
+                                    and desktop.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">06.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h3 class="card-title">Add Smart Functionality</h3>
+                                <p class="card-text">We can add useful features using Google Apps Script — such as
+                                    contact form submissions, email notifications, and sending enquiry data directly to
+                                    Google Sheets.</p>
+                            </div>
+                        </div>
+
+                        <div class="process-card glass-card" aria-hidden="true">
+                            <span class="card-step-num">07.</span>
+                            <div class="card-body">
+                                <div class="card-icon-glass">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </div>
+                                <h3 class="card-title">Launch Your Website</h3>
+                                <p class="card-text">Once everything is tested and you're happy with the result, we'll
+                                    help get your website live with the appropriate hosting and deployment setup based
+                                    on your requirements.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="header-right">
-                <p class="section-desc">
-                    From your first idea to a live website, we keep the process simple and transparent. We understand what you need, guide you through decisions, and build your website step by step.
-                </p>
-            </div>
-        </div>
-
-        <!-- Infinite Auto-Scrolling Glass Track -->
-        <div class="process-carousel-wrapper">
-            <div class="process-cards-track">
-                
-                <!-- Set 1 (Original) -->
-                <div class="process-card glass-card">
-                    <span class="card-step-num">01.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-compass-drafting"></i>
-                        </div>
-                        <h3 class="card-title">Understand Your Goal</h3>
-                        <p class="card-text">First, we understand why you need a website and what you want it to achieve. Based on your business and goals, we'll share our suggestions and help you decide the right direction.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">02.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-list-check"></i>
-                        </div>
-                        <h3 class="card-title">Understand Your Requirements</h3>
-                        <p class="card-text">You don't need to be a website expert. Tell us what you have in mind — even if you're not sure what you need. We'll explain the options and help you figure it out.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">03.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-bezier-curve"></i>
-                        </div>
-                        <h3 class="card-title">Design Your Website</h3>
-                        <p class="card-text">Once we understand your requirements, we create the visual design and overall look. We'll make sure the design matches your business and customer experience goals.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">04.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-                        <h3 class="card-title">Prepare Your Content</h3>
-                        <p class="card-text">After the design is clear, we'll work on the content your website needs — text, images, services, business information — and organize everything properly.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">05.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="card-title">Bring Design to Life</h3>
-                        <p class="card-text">Once design and content are ready, we move into development and build the responsive front-end so your website works smoothly across mobile, tablet, and desktop.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">06.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <h3 class="card-title">Add Smart Functionality</h3>
-                        <p class="card-text">We can add useful features using Google Apps Script — such as contact form submissions, email notifications, and sending enquiry data directly to Google Sheets.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card">
-                    <span class="card-step-num">07.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </div>
-                        <h3 class="card-title">Launch Your Website</h3>
-                        <p class="card-text">Once everything is tested and you're happy with the result, we'll help get your website live with the appropriate hosting and deployment setup based on your requirements.</p>
-                    </div>
-                </div>
-
-                <!-- Set 2 (Duplicated for Seamless Infinite Loop) -->
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">01.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-compass-drafting"></i>
-                        </div>
-                        <h3 class="card-title">Understand Your Goal</h3>
-                        <p class="card-text">First, we understand why you need a website and what you want it to achieve. Based on your business and goals, we'll share our suggestions and help you decide the right direction.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">02.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-list-check"></i>
-                        </div>
-                        <h3 class="card-title">Understand Your Requirements</h3>
-                        <p class="card-text">You don't need to be a website expert. Tell us what you have in mind — even if you're not sure what you need. We'll explain the options and help you figure it out.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">03.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-bezier-curve"></i>
-                        </div>
-                        <h3 class="card-title">Design Your Website</h3>
-                        <p class="card-text">Once we understand your requirements, we create the visual design and overall look. We'll make sure the design matches your business and customer experience goals.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">04.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-                        <h3 class="card-title">Prepare Your Content</h3>
-                        <p class="card-text">After the design is clear, we'll work on the content your website needs — text, images, services, business information — and organize everything properly.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">05.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="card-title">Bring Design to Life</h3>
-                        <p class="card-text">Once design and content are ready, we move into development and build the responsive front-end so your website works smoothly across mobile, tablet, and desktop.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">06.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <h3 class="card-title">Add Smart Functionality</h3>
-                        <p class="card-text">We can add useful features using Google Apps Script — such as contact form submissions, email notifications, and sending enquiry data directly to Google Sheets.</p>
-                    </div>
-                </div>
-
-                <div class="process-card glass-card" aria-hidden="true">
-                    <span class="card-step-num">07.</span>
-                    <div class="card-body">
-                        <div class="card-icon-glass">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </div>
-                        <h3 class="card-title">Launch Your Website</h3>
-                        <p class="card-text">Once everything is tested and you're happy with the result, we'll help get your website live with the appropriate hosting and deployment setup based on your requirements.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section>
+        </section>
 
         <!-- SOCIAL PROOF SECTION -->
         <section class="social-proof-section reveal-on-scroll">
@@ -415,86 +519,90 @@
 
 
         <!-- WHY DILLI WEB STUDIO (BENTO SECTION) -->
-<section id=Whyus class="why-us-section reveal-on-scroll">
-    <div class="why-us-container">
-        
-        <!-- Header -->
-        <div class="why-us-header">
-            <h2 class="why-us-title">Why Dilli Web Studio</h2>
-            <p class="why-us-subtitle">
-                We focus on creating websites that look professional, load fast, work smoothly, and give your customers a clear way to connect with your business.
-            </p>
-        </div>
+        <section id=Whyus class="why-us-section reveal-on-scroll">
+            <div class="why-us-container">
 
-        <!-- Bento Grid Layout -->
-        <div class="why-us-bento-grid">
-            
-            <!-- Left & Middle Grid Content Area -->
-            <div class="bento-left-group">
-                
-                <!-- Row 1 Cards -->
-                <div class="bento-row">
-                    
-                    <!-- Highlighted Blue Rectangle Card (01) -->
-                    <div class="bento-card card-highlight-blue">
-                        <div class="card-num-stat">01</div>
-                        <div class="card-footer-info">
-                            <h3 class="bento-card-title">Fast & Responsive</h3>
-                            <p class="bento-card-desc">Lightweight static websites working smoothly across mobile, tablet, and desktop without unnecessary complexity.</p>
-                        </div>
-                    </div>
-
-                    <!-- White Card (02) -->
-                    <div class="bento-card card-light">
-                        <div class="card-num-stat text-blue">02</div>
-                        <div class="card-footer-info">
-                            <h3 class="bento-card-title">Smart Features</h3>
-                            <p class="bento-card-desc">Connect enquiries to email & Google Sheets without needing a traditional backend.</p>
-                        </div>
-                    </div>
+                <!-- Header -->
+                <div class="why-us-header">
+                    <h2 class="why-us-title">Why Web Studio</h2>
+                    <p class="why-us-subtitle">
+                        We focus on creating websites that look professional, load fast, work smoothly, and give your
+                        customers a clear way to connect with your business.
+                    </p>
                 </div>
 
-                <!-- Row 2 Cards -->
-                <div class="bento-row row-three-cols">
-                    <!-- Card 03 -->
-                    <div class="bento-card card-light">
-                        <div class="card-num-stat text-blue">03</div>
-                        <div class="card-footer-info">
-                            <h3 class="bento-card-title">Flexible Pricing</h3>
-                            <p class="bento-card-desc">Options tailored to your needs & budget.</p>
+                <!-- Bento Grid Layout -->
+                <div class="why-us-bento-grid">
+
+                    <!-- Left & Middle Grid Content Area -->
+                    <div class="bento-left-group">
+
+                        <!-- Row 1 Cards -->
+                        <div class="bento-row">
+
+                            <!-- Highlighted Blue Rectangle Card (01) -->
+                            <div class="bento-card card-highlight-blue">
+                                <div class="card-num-stat">01</div>
+                                <div class="card-footer-info">
+                                    <h3 class="bento-card-title">Fast & Responsive</h3>
+                                    <p class="bento-card-desc">Lightweight static websites working smoothly across
+                                        mobile, tablet, and desktop without unnecessary complexity.</p>
+                                </div>
+                            </div>
+
+                            <!-- White Card (02) -->
+                            <div class="bento-card card-light">
+                                <div class="card-num-stat text-blue">02</div>
+                                <div class="card-footer-info">
+                                    <h3 class="bento-card-title">Smart Features</h3>
+                                    <p class="bento-card-desc">Connect enquiries to email & Google Sheets without
+                                        needing a traditional backend.</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Row 2 Cards -->
+                        <div class="bento-row row-three-cols">
+                            <!-- Card 03 -->
+                            <div class="bento-card card-light">
+                                <div class="card-num-stat text-blue">03</div>
+                                <div class="card-footer-info">
+                                    <h3 class="bento-card-title">Flexible Pricing</h3>
+                                    <p class="bento-card-desc">Options tailored to your needs & budget.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 04: Quote / Content Box -->
+                            <div class="bento-card card-light">
+                                <span class="quote-label">SEO-Friendly Structure</span>
+                                <blockquote class="bento-quote">
+                                    "We structure and improve your content with basic SEO practices so your business
+                                    gets found online."
+                                </blockquote>
+                                <span class="quote-author">04 — Foundation for Growth</span>
+                            </div>
+
+                            <!-- Highlighted Lime Accent Card (05) -->
+                            <div class="bento-card card-highlight-lime">
+                                <div class="card-num-stat text-dark">05</div>
+                                <div class="card-footer-info">
+                                    <h3 class="bento-card-title">Guidance Beyond</h3>
+                                    <p class="bento-card-desc">Support on site maintenance & online growth.</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Card 04: Quote / Content Box -->
-                    <div class="bento-card card-light">
-                        <span class="quote-label">SEO-Friendly Structure</span>
-                        <blockquote class="bento-quote">
-                            "We structure and improve your content with basic SEO practices so your business gets found online."
-                        </blockquote>
-                        <span class="quote-author">04 — Foundation for Growth</span>
+                    <!-- Right Column Image Card (Add your image here) -->
+                    <div class="bento-card card-image-showcase">
+                        <img src="data/team.jpg" alt="Dilli Web Studio Team" class="bento-img" />
                     </div>
 
-                    <!-- Highlighted Lime Accent Card (05) -->
-                    <div class="bento-card card-highlight-lime">
-                        <div class="card-num-stat text-dark">05</div>
-                        <div class="card-footer-info">
-                            <h3 class="bento-card-title">Guidance Beyond</h3>
-                            <p class="bento-card-desc">Support on site maintenance & online growth.</p>
-                        </div>
-                    </div>
                 </div>
 
             </div>
-
-            <!-- Right Column Image Card (Add your image here) -->
-            <div class="bento-card card-image-showcase">
-                <img src="data/team.jpg" alt="Dilli Web Studio Team" class="bento-img" />
-            </div>
-
-        </div>
-
-    </div>
-</section>
+        </section>
 
 
         <!-- COMMON QUESTIONS (FAQ) SECTION -->
@@ -624,19 +732,6 @@
                     </div>
 
                 </div>
-
-                <!-- FAQ BOTTOM CTA CARD -->
-                <div class="faq-bottom-cta">
-                    <div class="faq-cta-text">
-                        <h3 class="faq-cta-title">Still have a question?</h3>
-                        <p class="faq-cta-desc">No worries. Just ask us. We're happy to explain.</p>
-                    </div>
-                    <a href="https://wa.me/918825858292?text=Hi%2C%20I%20have%20a%20question%20about%20building%20a%20website!"
-                        target="_blank" rel="noopener noreferrer" class="btn-pill btn-primary faq-wa-btn">
-                        Chat on WhatsApp <span class="btn-arrow">↗</span>
-                    </a>
-                </div>
-
             </div>
         </section>
     </main>
@@ -644,90 +739,87 @@
     <!-- PREMIUM AGENCY FOOTER -->
     <footer class="footer-section">
         <div class="footer-container">
-
-            <!-- 1. Floating CTA Banner -->
-            <div class="footer-cta-card">
+            <!-- 1. Floating Glass CTA Banner -->
+            <div class="footer-cta-card glass-cta-card">
                 <div class="cta-content">
                     <h3>Ready to elevate your online presence?</h3>
                     <p>Let's discuss your project and build something exceptional together.</p>
                 </div>
-                <a href="tel:8825858292" class="btn-pill btn-primary">
+                <a href="https://wa.me/918825858292?text=Hi%2C%20I%20would%20like%20to%20get%20a%20free%20consultation!"
+                    target="_blank" class="btn-pill btn-primary">
                     Get Free Consultation <span class="btn-arrow">↗</span>
                 </a>
             </div>
 
-            <!-- 2. Main Footer Grid -->
+            <!-- 2. Balanced 2-Column Main Footer Grid -->
             <div class="footer-main-content">
-                <!-- Brand Column -->
-                <div class="footer-brand-col">
-                    <a href="#" class="brand-logo">
-                        <div class="logo-mark">D</div>
-                        <h2>Dilli Web Studio</h2>
-                    </a>
 
-                    <!-- Live Availability Badge -->
-                    <div class="availability-badge">
-                        <span class="pulse-dot"></span>
-                        <span>Available for new projects</span>
+                <!-- Left Column: Brand Info + Navigation -->
+                <div class="footer-left-wrapper">
+                    <div class="footer-brand-col">
+                        <a href="#" class="brand-logo">
+                            <div class="logo-mark">D</div>
+                            <h2>Dilli Web Studio</h2>
+                        </a>
+
+                        <div class="availability-badge">
+                            <span class="pulse-dot"></span>
+                            <span>Available for new projects</span>
+                        </div>
+
+                        <p class="footer-desc">
+                            Crafting modern, high-converting digital experiences for businesses looking to dominate
+                            online.
+                        </p>
+
+                        <div class="footer-social-icons">
+                            <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/918825858292" target="_blank" class="social-btn"
+                                aria-label="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:hello@dilliwebstudio.com" class="social-btn" aria-label="Email">
+                                <i class="fa-regular fa-envelope"></i>
+                            </a>
+                            <a href="tel:+918825858292" class="social-btn" aria-label="Contact Call">
+                                <i class="fa-solid fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <p class="footer-desc">
-                        Crafting modern, high-converting digital experiences for businesses looking to dominate online.
-                    </p>
-
-                    <!-- Premium Glass Social Buttons -->
-                    <div class="footer-social-icons">
-                        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/918825858292?text=Hi%2C%20I%20would%20like%20to%20get%20a%20free%20consultation!"
-                            target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:hello@dilliwebstudio.com" class="social-btn" aria-label="Email">
-                            <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a href="tel:+918825858292" class="social-btn" aria-label="Contact Call">
-                            <i class="fa-solid fa-phone"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Column Links -->
-                <div class="footer-links-grid">
-                    <div class="footer-col">
+                    <div class="footer-nav-col">
                         <h4 class="footer-title">Navigation</h4>
                         <ul>
-                            <li><a href="#">About Studio</a></li>
-                            <li><a href="#">Selected Work</a></li>
-                            <li><a href="#pricing">Pricing Models</a></li>
-                            <li><a href="#">Client FAQ</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4 class="footer-title">Services</h4>
-                        <ul>
-                            <li><a href="#">Business Websites</a></li>
-                            <li><a href="#">Landing Pages</a></li>
-                            <li><a href="#">E-commerce Stores</a></li>
-                            <li><a href="#">SEO & Performance</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4 class="footer-title">Get in Touch</h4>
-                        <ul>
-                            <li><a href="mailto:hello@dilliwebstudio.com"
-                                    class="contact-highlight">hello@dilliwebstudio.com</a></li>
-                            <li><a href="#">Twitter / X</a></li>
-                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#Whyus">Why Us</a></li>
+                            <li><a href="#ourwork">Work</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#f&q">FAQ</a></li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Right Column: Aesthetic Working Map Card -->
+                <div class="footer-map-col">
+                    <div class="map-card-wrapper">
+                        <div class="map-card-header">
+                            <i class="fa-solid fa-location-dot map-icon"></i>
+                            <span>Vadamadurai, Tiruvallur, Tamil Nadu</span>
+                        </div>
+                        <div class="map-frame-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d995633.7529059132!2d80.6243349!3d12.8952213!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52811a87b71831%3A0x5bb26903561a7328!2sVadamadurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1786488352959!5m2!1sen!2sin"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- 3. Bottom Bar & Watermark -->
+            <!-- 3. Bottom Bar -->
             <div class="footer-bottom">
                 <p class="footer-copyright">
                     © 2026 Dilli Web Studio. Handcrafted with precision.

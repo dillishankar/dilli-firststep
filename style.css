@@ -54,6 +54,7 @@ body {
         opacity: 0;
         transform: translateY(-15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -65,6 +66,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -72,13 +74,27 @@ body {
 }
 
 @keyframes floatSlow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 @keyframes floatReverse {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
 }
 
 /* ==========================================================================
@@ -453,9 +469,23 @@ body {
     border: 1px solid #82E4D0;
 }
 
-.float-1 { top: 12%; left: -35px; animation: floatSlow 5s ease-in-out infinite; }
-.float-2 { bottom: 20%; right: -30px; animation: floatReverse 6s ease-in-out infinite; }
-.float-3 { top: 50%; left: -45px; animation: floatSlow 7s ease-in-out infinite; }
+.float-1 {
+    top: 12%;
+    left: -35px;
+    animation: floatSlow 5s ease-in-out infinite;
+}
+
+.float-2 {
+    bottom: 20%;
+    right: -30px;
+    animation: floatReverse 6s ease-in-out infinite;
+}
+
+.float-3 {
+    top: 50%;
+    left: -45px;
+    animation: floatSlow 7s ease-in-out infinite;
+}
 
 /* ==========================================================================
    SOCIAL PROOF SECTION
@@ -508,8 +538,15 @@ body {
 }
 
 @keyframes avatarPulse {
-    0% { transform: scale(0.95); opacity: 0.4; }
-    100% { transform: scale(1.1); opacity: 0.8; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
 }
 
 .proof-avatar {
@@ -613,8 +650,15 @@ body {
 }
 
 @keyframes blinkCursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* ==========================================================================
@@ -625,7 +669,7 @@ body {
     padding: 6.5rem 1.5rem;
     max-width: 1200px;
     margin: 4rem auto;
-    background: 
+    background:
         radial-gradient(ellipse 80% 50% at 50% 0%, rgba(65, 105, 225, 0.45) 0%, rgba(6, 12, 28, 0.98) 70%),
         #040A17;
     border-radius: 32px;
@@ -770,7 +814,9 @@ body {
     background: linear-gradient(165deg, rgba(65, 105, 225, 0.3) 0%, rgba(15, 23, 42, 0.8) 100%);
 }
 
-.card-top { margin-bottom: 1.5rem; }
+.card-top {
+    margin-bottom: 1.5rem;
+}
 
 .plan-tag {
     font-size: 0.95rem;
@@ -789,7 +835,9 @@ body {
     margin-bottom: 0.75rem;
 }
 
-.plus-sign { font-size: 2rem; }
+.plus-sign {
+    font-size: 2rem;
+}
 
 .plan-desc {
     font-size: 0.875rem;
@@ -834,7 +882,9 @@ body {
     color: #4169E1;
 }
 
-.stacked-card-wrapper.active .features-list i { color: #82A0FF; }
+.stacked-card-wrapper.active .features-list i {
+    color: #82A0FF;
+}
 
 .btn-card {
     display: inline-flex;
@@ -880,66 +930,83 @@ body {
 }
 
 /* ==========================================================================
-   FOOTER STYLING
+   PERFECTED BALANCED FOOTER STYLING
    ========================================================================== */
 .footer-section {
     width: 100%;
-    background-color: #F4F4F2;
-    border-top: var(--border-thin);
+    background-color: #0F172A;
+    /* Switched to sleek dark theme matching Pricing section */
+    color: #FFFFFF;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 5rem 1.5rem 2.5rem 1.5rem;
     position: relative;
     overflow: hidden;
 }
 
 .footer-container {
-    max-width: 1120px;
+    max-width: 1140px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 3.5rem;
     position: relative;
     z-index: 2;
 }
 
+/* Floating White CTA Card Banner */
 .footer-cta-card {
     background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-card);
     padding: 2.25rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .cta-content h3 {
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #111111;
     letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
 }
 
 .cta-content p {
-    color: var(--text-secondary);
+    color: #666666;
     font-size: 0.95rem;
 }
 
+/* Balanced 2-Column Grid Layout */
 .footer-main-content {
     display: grid;
-    grid-template-columns: 1.25fr 1.75fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: 4rem;
+    align-items: center;
+}
+
+.footer-left-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
 }
 
 .footer-brand-col {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 320px;
+}
+
+.footer-brand-col .brand-logo {
+    color: #FFFFFF;
+    margin-bottom: 0.85rem;
 }
 
 .footer-brand-col .brand-logo h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
 }
 
@@ -947,13 +1014,13 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.25);
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
     padding: 0.3rem 0.75rem;
     border-radius: var(--radius-pill);
     font-size: 0.78rem;
     font-weight: 600;
-    color: #15803D;
+    color: #4ADE80;
     margin-bottom: 1.15rem;
 }
 
@@ -966,16 +1033,26 @@ body {
 }
 
 @keyframes greenPulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
 }
 
 .footer-desc {
-    color: var(--text-secondary);
+    color: #94A3B8;
     font-size: 0.925rem;
     line-height: 1.6;
-    max-width: 330px;
     margin-bottom: 1.75rem;
 }
 
@@ -986,80 +1063,180 @@ body {
 }
 
 .social-btn {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
-    font-size: 1.05rem;
+    color: #FFFFFF;
+    font-size: 1rem;
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .social-btn:hover {
-    color: #000000;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    color: #FFFFFF;
+    background-color: #4169E1;
+    border-color: #4169E1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
 }
 
-.footer-links-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Navigation Link Alignment */
+
+/* Floating Frosted Glass CTA Card Banner */
+.footer-cta-card.glass-cta-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 2.25rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 2rem;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-cta-card.glass-cta-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(65, 105, 225, 0.5);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(65, 105, 225, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.footer-cta-card .cta-content h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+}
+
+.footer-cta-card .cta-content p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+}
+
+.footer-nav-col {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     margin-bottom: 1.25rem;
 }
 
-.footer-col ul {
+.footer-nav-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
 }
 
-.footer-col a {
+.footer-nav-col a {
     text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    color: #94A3B8;
+    font-size: 0.925rem;
     font-weight: 500;
     transition: all 0.25s ease;
 }
 
-.footer-col a:hover {
-    color: var(--text-primary);
-    transform: translateX(3px);
+.footer-nav-col a:hover {
+    color: #4169E1;
+    transform: translateX(4px);
 }
 
-.contact-highlight {
-    font-weight: 600 !important;
-    color: var(--text-primary) !important;
+/* Working Map Container */
+.footer-map-col {
+    display: flex;
+    flex-direction: column;
 }
 
+.map-card-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.35s ease;
+}
+
+.map-card-wrapper:hover {
+    border-color: rgba(65, 105, 225, 0.5);
+}
+
+.map-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+    padding-left: 0.25rem;
+}
+
+.map-icon {
+    color: #4169E1;
+}
+
+.map-frame-container {
+    width: 100%;
+    height: 170px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.aesthetic-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(90%) hue-rotate(180deg) contrast(110%);
+    /* Dark Mode Map Styling */
+}
+
+/* Footer Bottom Copyright */
 .footer-bottom {
     width: 100%;
     padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
 }
 
 .footer-copyright {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: #64748B;
 }
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+    .footer-main-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-left-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
 
 /* ==========================================================================
    RESPONSIVE MEDIA QUERIES
@@ -1086,9 +1263,19 @@ body {
 }
 
 @media (max-width: 900px) {
-    .float-3 { display: none; }
-    .float-1 { left: 10px; top: -15px; }
-    .float-2 { right: 10px; bottom: -15px; }
+    .float-3 {
+        display: none;
+    }
+
+    .float-1 {
+        left: 10px;
+        top: -15px;
+    }
+
+    .float-2 {
+        right: 10px;
+        bottom: -15px;
+    }
 
     .footer-cta-card {
         flex-direction: column;
@@ -1103,7 +1290,10 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header-nav { width: 94%; top: 1rem; }
+    .header-nav {
+        width: 94%;
+        top: 1rem;
+    }
 
     .nav-menu {
         display: none;
@@ -1120,8 +1310,13 @@ body {
         box-shadow: var(--shadow-float);
     }
 
-    .nav-menu.active { display: flex; }
-    .mobile-toggle { display: block; }
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
 
     .hero-section {
         padding-top: 7.5rem;
@@ -1135,17 +1330,31 @@ body {
         max-width: 320px;
     }
 
-    .hero-cta-group .btn-pill { width: 100%; }
+    .hero-cta-group .btn-pill {
+        width: 100%;
+    }
 
     .floating-card {
         padding: 0.5rem 0.85rem;
         font-size: 0.75rem;
     }
 
-    .social-proof-section { padding: 2rem 1rem; }
-    .proof-avatar { width: 56px; height: 56px; }
-    .proof-title { font-size: 1.1rem; }
-    .proof-quote { font-size: 0.925rem; }
+    .social-proof-section {
+        padding: 2rem 1rem;
+    }
+
+    .proof-avatar {
+        width: 56px;
+        height: 56px;
+    }
+
+    .proof-title {
+        font-size: 1.1rem;
+    }
+
+    .proof-quote {
+        font-size: 0.925rem;
+    }
 }
 
 @media (max-width: 550px) {
@@ -1211,7 +1420,8 @@ body {
 
 .faq-item.active {
     border-color: rgba(65, 105, 225, 0.5);
-    border-radius: 28px; /* Slightly boxier when expanded to fit content gracefully */
+    border-radius: 28px;
+    /* Slightly boxier when expanded to fit content gracefully */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -1306,15 +1516,15 @@ body {
         padding: 1.1rem 1.4rem;
         font-size: 0.95rem;
     }
-    
+
     .faq-item {
         border-radius: 30px;
     }
-    
+
     .faq-answer {
         padding: 0 1.4rem;
     }
-    
+
     .faq-item.active .faq-answer {
         padding: 0 1.4rem 1.25rem 1.4rem;
     }
@@ -1457,6 +1667,7 @@ body {
         padding: 1rem 1.25rem;
         font-size: 0.875rem;
     }
+
     .faq-answer {
         padding: 0 1.25rem 1rem 1.25rem;
     }
@@ -1515,7 +1726,7 @@ body {
     border-radius: var(--radius-pill);
     overflow: hidden;
     /* Springy transition curve for fluid expansion */
-    transition: 
+    transition:
         border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1744,6 +1955,7 @@ body {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(calc(-50% - 0.875rem));
     }
@@ -1763,7 +1975,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.03),
         inset 0 1px 1px rgba(255, 255, 255, 0.9);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1773,7 +1985,7 @@ body {
     transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(65, 105, 225, 0.4);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(65, 105, 225, 0.12),
         inset 0 1px 1px rgba(255, 255, 255, 1);
 }
@@ -1806,7 +2018,7 @@ body {
     border-radius: 16px;
     background: linear-gradient(135deg, rgba(65, 105, 225, 0.12) 0%, rgba(65, 105, 225, 0.03) 100%);
     border: 1px solid rgba(65, 105, 225, 0.2);
-    box-shadow: 
+    box-shadow:
         0 6px 16px rgba(65, 105, 225, 0.08),
         inset 0 1px 1px rgba(255, 255, 255, 0.8);
     color: #4169E1;
@@ -1846,6 +2058,7 @@ body {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
     .glass-card {
         flex: 0 0 290px;
         height: 400px;
@@ -1985,8 +2198,13 @@ body {
     margin-bottom: 2rem;
 }
 
-.text-blue { color: #4169E1; }
-.text-dark { color: #111111; }
+.text-blue {
+    color: #4169E1;
+}
+
+.text-dark {
+    color: #111111;
+}
 
 .bento-card-title {
     font-size: 1.15rem;
@@ -2051,17 +2269,597 @@ body {
     .why-us-bento-grid {
         grid-template-columns: 1fr;
     }
+
     .card-image-showcase {
         min-height: 320px;
     }
 }
 
 @media (max-width: 680px) {
+
     .bento-row,
     .bento-row.row-three-cols {
         grid-template-columns: 1fr;
     }
+
     .card-num-stat {
         margin-bottom: 1.25rem;
     }
 }
+
+
+
+
+
+
+/* ==========================================================================
+   PRO FLOATING WHATSAPP NOTIFICATION WIDGET
+   ========================================================================== */
+.pro-whatsapp-widget {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 99999;
+}
+
+/* Floating Action Trigger Button */
+.pro-whatsapp-btn {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.38), 0 4px 10px rgba(0, 0, 0, 0.08);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.4s ease,
+        box-shadow 0.3s ease;
+}
+
+.pro-whatsapp-btn .whatsapp-icon {
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+
+/* Show Floating Button */
+.pro-whatsapp-btn.show {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.pro-whatsapp-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5), 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.pro-whatsapp-btn:hover .whatsapp-icon {
+    transform: scale(1.1) rotate(-8deg);
+}
+
+/* Notification Alert Red Badge */
+.btn-unread-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    background: #FF3B30;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 6px rgba(255, 59, 48, 0.4);
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Glassmorphic Popup Card */
+.pro-whatsapp-popup {
+    position: absolute;
+    right: 0;
+    bottom: 76px;
+    width: 290px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Show Popup */
+.pro-whatsapp-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.popup-close-btn:hover {
+    background: rgba(0, 0, 0, 0.12);
+    color: var(--text-primary);
+}
+
+/* Header & Avatar */
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.popup-avatar-group {
+    position: relative;
+}
+
+.popup-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
+}
+
+.active-pulse {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    background-color: #22C55E;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.popup-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-sender {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.popup-status {
+    font-size: 0.725rem;
+    color: #16A34A;
+    font-weight: 600;
+}
+
+/* Body Speech Bubble */
+.popup-body {
+    background: #F4F4F2;
+    border-radius: 12px;
+    padding: 0.75rem 0.85rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.popup-message {
+    font-size: 0.825rem;
+    color: var(--text-primary);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* CTA Button */
+.popup-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.65rem;
+    background: #25D366;
+    color: #FFFFFF;
+    border-radius: var(--radius-pill);
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.popup-cta-btn:hover {
+    background: #1DA851;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .pro-whatsapp-widget {
+        right: 16px;
+        bottom: 20px;
+    }
+
+    .pro-whatsapp-btn {
+        width: 54px;
+        height: 54px;
+    }
+
+    .pro-whatsapp-btn .whatsapp-icon {
+        font-size: 28px;
+    }
+
+    .pro-whatsapp-popup {
+        width: 260px;
+        bottom: 68px;
+    }
+}
+
+/* ==========================================================================
+   PRO DUAL-OPTION GLASS NOTIFICATION WIDGET
+   ========================================================================== */
+.pro-whatsapp-widget {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 99999;
+}
+
+/* Floating Trigger Button */
+.pro-whatsapp-btn {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    padding: 3px;
+    border: 2px solid #4169E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(65, 105, 225, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.trigger-face-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pro-whatsapp-btn.show {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-wa-icon-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    background: #25D366;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-unread-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    background: #FF3B30;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Modification 2: Frosted Glass Blur Notification Card */
+.pro-whatsapp-popup.glass-card-theme {
+    position: absolute;
+    right: 0;
+    bottom: 78px;
+    width: 310px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    padding: 1.25rem;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pro-whatsapp-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.popup-avatar-group {
+    position: relative;
+}
+
+.popup-avatar-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4169E1;
+}
+
+.active-pulse {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #22C55E;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.popup-sender {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.popup-status {
+    font-size: 0.725rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.text-green {
+    color: #22C55E;
+    font-size: 0.5rem;
+}
+
+/* Modification 1: Tab Switcher (WhatsApp vs Form) */
+.notif-tab-switcher {
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 3px;
+    margin-bottom: 0.85rem;
+    gap: 4px;
+}
+
+.notif-tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.45rem 0.5rem;
+    border-radius: 9px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+.notif-tab.active {
+    background: #FFFFFF;
+    color: #4169E1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.notif-tab-content {
+    display: none;
+}
+
+.notif-tab-content.active {
+    display: block;
+}
+
+/* Message Bubble */
+.popup-body {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.popup-message {
+    font-size: 0.825rem;
+    color: var(--text-primary);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Form Styles */
+.notif-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.notif-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 0.825rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.notif-input:focus {
+    border-color: #4169E1;
+    background: #FFFFFF;
+}
+
+/* Action Buttons */
+.popup-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.65rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-cta-btn.wa-bg {
+    background: #25D366;
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.popup-cta-btn.blue-bg {
+    background: #4169E1;
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(65, 105, 225, 0.35);
+}
+
+.popup-cta-btn:hover {
+    transform: translateY(-1px);
+}
+
+.form-success-alert {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #16A34A;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    .pro-whatsapp-widget {
+        right: 16px;
+        bottom: 20px;
+    }
+
+    .pro-whatsapp-btn {
+        width: 54px;
+        height: 54px;
+    }
+
+    .pro-whatsapp-popup.glass-card-theme {
+        width: 280px;
+        bottom: 70px;
+    }
+}
+
+

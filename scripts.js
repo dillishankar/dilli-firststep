@@ -118,3 +118,102 @@ function toggleFaq(button) {
         currentAnswer.style.maxHeight = currentAnswer.scrollHeight + "px";
     }
 }
+
+
+// Google Apps Script Web App Endpoint
+const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyyAD5x0yvrwG1CQB4-d65b6qHNtghC9bfQC_om4HE6sMudzNQnKGa4dDL722sE6pz_/exec";
+
+const whatsappBtn = document.querySelector(".pro-whatsapp-btn");
+const whatsappPopup = document.getElementById("whatsappPopup");
+
+// Timed Display Trigger (Shows 4 seconds after page load)
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        if (whatsappBtn) whatsappBtn.classList.add("show");
+        setTimeout(() => {
+            if (whatsappPopup) whatsappPopup.classList.add("show");
+        }, 600);
+    }, 4000);
+});
+
+function toggleNotificationCard() {
+    if (whatsappPopup) {
+        whatsappPopup.classList.toggle("show");
+    }
+}
+
+function closeWhatsApp() {
+    if (whatsappPopup) {
+        whatsappPopup.classList.remove("show");
+    }
+}
+
+// Tab Switcher Logic (Direct Chat vs Quick Inquiry Form)
+function switchNotifTab(tabName) {
+    const chatBtn = document.getElementById("tabChatBtn");
+    const formBtn = document.getElementById("tabFormBtn");
+    const chatView = document.getElementById("notifChatView");
+    const formView = document.getElementById("notifFormView");
+
+    if (tabName === "chat") {
+        chatBtn.classList.add("active");
+        formBtn.classList.remove("active");
+        chatView.classList.add("active");
+        formView.classList.remove("active");
+    } else {
+        formBtn.classList.add("active");
+        chatBtn.classList.remove("active");
+        formView.classList.add("active");
+        chatView.classList.remove("active");
+    }
+}
+
+// Google Apps Script Form Submission Handler
+function handleLeadSubmit(event) {
+    event.preventDefault();
+
+    const nameInput = document.getElementById("leadName");
+    const phoneInput = document.getElementById("leadPhone");
+    const submitBtn = document.getElementById("leadSubmitBtn");
+    const successMsg = document.getElementById("formSuccessMsg");
+
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+
+    if (!name || !phone) return;
+
+    // UI Loading State
+    submitBtn.innerHTML = `<span>Sending...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+    submitBtn.disabled = true;
+
+    // Prepare URL-Encoded Data payload for Google Apps Script
+    const formData = new URLSearchParams();
+    formData.append("Name", name);
+    formData.append("Phone", phone);
+
+    fetch(GOOGLE_SHEET_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Bypasses CORS policy issues for Google Apps Script
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData.toString()
+    })
+        .then(() => {
+            // Success Feedback
+            submitBtn.innerHTML = `<span>Submitted!</span> <i class="fa-solid fa-check"></i>`;
+            successMsg.innerText = "Thank you! We will contact you shortly.";
+            document.getElementById("leadCaptureForm").reset();
+
+            setTimeout(() => {
+                submitBtn.innerHTML = `<span>Submit Inquiry</span> <i class="fa-solid fa-check"></i>`;
+                submitBtn.disabled = false;
+            }, 3500);
+        })
+        .catch((error) => {
+            console.error("Error submitting lead:", error);
+            submitBtn.innerHTML = `<span>Submit Inquiry</span>`;
+            successMsg.innerText = "Something went wrong. Please try WhatsApp chat.";
+            submitBtn.disabled = false;
+        });
+}
