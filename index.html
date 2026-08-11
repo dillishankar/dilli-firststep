@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dilli Web Studio — Websites for Growing Businesses</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scripts.js">
     <!-- Typography: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,68 +40,85 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <main>
-        <section class="hero-section">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="badge-announcement">
+            <span>Websites for growing businesses ↗</span>
+        </div>
 
-            <div class="badge-announcement">
-                <span>Websites for growing businesses ↗</span>
+        <h1 class="hero-heading">
+            Websites that make<br />
+            your <span class="highlight-mint">business stand out.</span>
+        </h1>
+
+        <p class="hero-description">
+            Modern, responsive websites designed for businesses that want to look professional and grow online.
+        </p>
+
+        <div class="hero-cta-group">
+            <a href="#" class="btn-pill btn-primary">Get Started ↗</a>
+            <a href="#" class="btn-pill btn-secondary">View My Work</a>
+        </div>
+    </section>
+
+    <!-- SEPARATE SHOWCASE / VIDEO SECTION -->
+    <section class="showcase-section">
+        <div class="showcase-wrapper">
+
+            <!-- Floating Accent Badges -->
+            <div class="floating-card float-1">
+                <span class="dot-status"></span> Salon Website
+            </div>
+            <div class="floating-card float-2">
+                <span class="dot-status"></span> Gym Website
+            </div>
+            <div class="floating-card float-3">
+                <span class="dot-status"></span> Business Website
             </div>
 
-            <h1 class="hero-heading">
-                Websites that make<br />
-                your <span class="highlight-mint">business stand out.</span>
-            </h1>
+            <!-- Browser Frame with Embedded Video -->
+            <div class="browser-frame">
+                <div class="browser-header">
+                    <div class="browser-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="browser-address">dilliwebstudio.com/preview</div>
+                </div>
 
-            <p class="hero-description">
-                Modern, responsive websites designed for businesses that want to look professional and grow online.
+                <!-- Video Viewport -->
+                <div class="mockup-video-container">
+                    <video autoplay loop muted playsinline class="showcase-video">
+                        <source src="data/demo.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF / QUOTE BANNER SECTION -->
+    <section class="social-proof-section">
+        <div class="proof-container">
+            <div class="avatar-wrapper">
+                <img src="data/IMG_20260608_185546.png" class="proof-avatar" alt="Dilli Shankar" />
+            </div>
+
+            <h3 class="proof-title">Your Business Deserves a Better Website.</h3>
+
+            <blockquote class="proof-quote">
+                "Modern, mobile-friendly websites for small businesses that want to look professional and get more customers."
+            </blockquote>
+
+            <p class="proof-author">
+                — Dilli Shankar, Founder of Dilli Web Studio
             </p>
-
-            <div class="hero-cta-group">
-                <a href="#" class="btn-pill btn-primary">Get Started ↗</a>
-                <a href="#" class="btn-pill btn-secondary">View My Work</a>
-            </div>
-
-            <div class="showcase-wrapper">
-
-                <!-- Floating Accent Badges (Stays in position over video) -->
-                <div class="floating-card float-1">
-                    <span class="dot-status"></span> Salon Website
-                </div>
-                <div class="floating-card float-2">
-                    <span class="dot-status"></span> Gym Website
-                </div>
-                <div class="floating-card float-3">
-                    <span class="dot-status"></span> Business Website
-                </div>
-                <div class="floating-card float-3">
-                    <span class="dot-status"></span> Restaurant Website
-                </div>
-
-                <!-- Browser Frame with Embedded Video -->
-                <div class="browser-frame">
-                    <div class="browser-header">
-                        <div class="browser-dots">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <div class="browser-address">dilliwebstudio.com/preview</div>
-                    </div>
-
-                    <!-- Video Viewport -->
-                    <div class="mockup-video-container">
-                        <video autoplay loop muted playsinline class="showcase-video">
-                            <!-- Change this to your actual video path -->
-                            <source src="data/demo.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-
-            </div>
-            </div>
-        </section>
+        </div>
+    </section>
+</main>
         <!-- SOCIAL PROOF / QUOTE BANNER SECTION -->
         <section class="social-proof-section">
             <div class="proof-container">
@@ -127,15 +145,6 @@
             </div>
         </section>
     </main>
-
-    <script>
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
 </body>
 
 </html>

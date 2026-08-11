@@ -229,14 +229,13 @@ body {
 }
 
 /* ==========================================================================
-        HERO SECTION (FORCED LOWER Z-INDEX)
-        ========================================================================== */
+   HERO SECTION
+   ========================================================================== */
 .hero-section {
     position: relative;
     z-index: 1 !important;
     padding-top: 10.5rem;
-    padding-bottom: 2.5rem;
-    /* Reduced bottom gap */
+    padding-bottom: 3rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     max-width: 1200px;
@@ -246,7 +245,27 @@ body {
     align-items: center;
     text-align: center;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    /* Grid Lines Pattern */
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+
+    /* Fade-out mask */
+    mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
 }
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* Adjusted since showcase is now in its own section */
+}
+
 
 .badge-announcement {
     display: inline-flex;
@@ -305,6 +324,16 @@ body {
 /* ==========================================================================
         SHOWCASE & BROWSER MOCKUP (WITH INTEGRATED VIDEO FRAME)
         ========================================================================== */
+
+.showcase-section {
+    width: 100%;
+    padding: 2rem 1.5rem 5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1 !important;
+}
+
 .showcase-wrapper {
     position: relative;
     z-index: 1 !important;
