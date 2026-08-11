@@ -9,15 +9,16 @@
         });
     }
 
-    // 2. Typing Animation Logic (Strict 2 Lines)
+    // 2. Typing Animation Logic
     const phraseLine1 = "Websites that make your";
     const phraseHighlight = "business stand out.";
 
     let i = 0, k = 0;
-    const typingSpeed = 90; // Smooth typing speed
+    const typingSpeed = 90;
 
     function startTyping() {
         const textElement = document.getElementById('typing-text');
+        const cursorElement = document.querySelector('.typing-cursor');
         if (!textElement) return;
 
         function typeWriter() {
@@ -37,14 +38,21 @@
                     highlightSpan.innerHTML += phraseHighlight.charAt(k);
                 }
                 k++;
-                setTimeout(typeWriter, typingSpeed);
+                
+                // When finished typing, hide the cursor immediately
+                if (k === phraseHighlight.length) {
+                    if (cursorElement) {
+                        cursorElement.style.display = 'none';
+                    }
+                } else {
+                    setTimeout(typeWriter, typingSpeed);
+                }
             }
         }
 
         typeWriter();
     }
 
-    // Trigger on load
     if (document.readyState === 'complete') {
         startTyping();
     } else {

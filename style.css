@@ -551,6 +551,8 @@ body {
     margin-left: 2px;
     color: var(--text-primary);
     animation: blinkCursor 0.7s infinite;
+    width: 0; /* Prevents cursor from taking up layout width on mobile */
+    overflow: visible;
 }
 
 @keyframes blinkCursor {
