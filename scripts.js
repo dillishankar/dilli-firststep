@@ -86,10 +86,35 @@ function selectPricingCard(selectedWrapper, event) {
     }
 
     const allWrappers = document.querySelectorAll('.stacked-card-wrapper');
-    
+
     allWrappers.forEach(wrapper => {
         wrapper.classList.remove('active');
     });
 
     selectedWrapper.classList.add('active');
+}
+
+// Smooth Professional FAQ Accordion Toggle
+function toggleFaq(button) {
+    const currentItem = button.parentElement;
+    const currentAnswer = currentItem.querySelector('.faq-answer');
+    const isActive = currentItem.classList.contains('active');
+
+    // Close all other active FAQ items smoothly
+    document.querySelectorAll('.faq-item.active').forEach(item => {
+        if (item !== currentItem) {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+        }
+    });
+
+    // Toggle current item state
+    if (isActive) {
+        currentItem.classList.remove('active');
+        currentAnswer.style.maxHeight = null;
+    } else {
+        currentItem.classList.add('active');
+        // Calculate dynamic height to drive CSS transition smoothly
+        currentAnswer.style.maxHeight = currentAnswer.scrollHeight + "px";
+    }
 }
