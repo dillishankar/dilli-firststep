@@ -295,8 +295,11 @@ body {
 .highlight-mint {
     background-color: var(--accent-mint);
     color: var(--text-primary);
-    padding: 0.05em 0.3em;
-    border-radius: 0.35em;
+    padding: 0.1em 0.35em;
+    border-radius: 0 !important;
+    /* Sharp square corners */
+    font-style: italic;
+    /* Keeps the italic look */
     display: inline-block;
 }
 
@@ -537,6 +540,29 @@ body {
     border: 2px solid var(--color-white);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     display: block;
+}
+
+/* ==========================================================================
+   TYPING ANIMATION CURSOR
+   ========================================================================== */
+.typing-cursor {
+    display: inline-block;
+    font-weight: 400;
+    margin-left: 2px;
+    color: var(--text-primary);
+    animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Responsive Design */
