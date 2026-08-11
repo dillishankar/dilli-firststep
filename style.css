@@ -1668,3 +1668,400 @@ body {
         padding: 0 1.4rem 1.25rem 1.4rem;
     }
 }
+
+
+/* ==========================================================================
+   HOW WE WORK - GLASS & INFINITE AUTO-LOOP
+   ========================================================================== */
+.how-it-works-section {
+    width: 100%;
+    padding: 6.5rem 0;
+    background-color: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.how-it-works-header {
+    max-width: 1300px;
+    margin: 0 auto 3.5rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-end;
+}
+
+/* 1st Modification: Normal Title + Royal Blue Italic Work */
+.section-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.highlight-blue-italic {
+    font-style: italic;
+    color: #4169E1;
+    font-weight: 700;
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* 2nd Modification: Infinite Auto-Loop Track & Outer Mask */
+.process-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0 2rem 0;
+    /* Soft side fading gradient masks */
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.process-cards-track {
+    display: flex;
+    gap: 1.75rem;
+    width: max-content;
+    animation: infiniteScrollLoop 35s linear infinite;
+}
+
+/* Pause animation smoothly on hover */
+.process-carousel-wrapper:hover .process-cards-track {
+    animation-play-state: paused;
+}
+
+@keyframes infiniteScrollLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 0.875rem));
+    }
+}
+
+/* 2nd Modification: Frosted Glass Cards */
+.glass-card {
+    flex: 0 0 330px;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
+    padding: 2.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.03),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(65, 105, 225, 0.4);
+    box-shadow: 
+        0 20px 40px rgba(65, 105, 225, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.card-step-num {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.05);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    user-select: none;
+    transition: color 0.4s ease;
+}
+
+.glass-card:hover .card-step-num {
+    color: rgba(65, 105, 225, 0.18);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 2;
+}
+
+/* 3rd Modification: Realistic 3D Professional Glass Icons */
+.card-icon-glass {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.12) 0%, rgba(65, 105, 225, 0.03) 100%);
+    border: 1px solid rgba(65, 105, 225, 0.2);
+    box-shadow: 
+        0 6px 16px rgba(65, 105, 225, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    color: #4169E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover .card-icon-glass {
+    background: linear-gradient(135deg, #4169E1 0%, #2A4CBD 100%);
+    color: #FFFFFF;
+    border-color: #4169E1;
+    box-shadow: 0 10px 22px rgba(65, 105, 225, 0.3);
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 900px) {
+    .how-it-works-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .glass-card {
+        flex: 0 0 290px;
+        height: 400px;
+        padding: 1.75rem 1.5rem;
+    }
+}
+
+
+/* ==========================================================================
+   WHY DILLI WEB STUDIO - BENTO GRID & HIGHLIGHTED RECTANGLES
+   ========================================================================== */
+.why-us-section {
+    width: 100%;
+    padding: 6.5rem 1.5rem;
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.why-us-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.why-us-header {
+    margin-bottom: 3.5rem;
+    max-width: 650px;
+}
+
+.why-us-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.why-us-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Bento Architecture */
+.why-us-bento-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.bento-left-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bento-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.bento-row.row-three-cols {
+    grid-template-columns: 1fr 1.3fr 1fr;
+}
+
+/* Base Bento Card */
+.bento-card {
+    border-radius: 24px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+}
+
+/* White Standard Card */
+.card-light {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.card-light:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    border-color: rgba(65, 105, 225, 0.3);
+}
+
+/* HIGHLIGHTED BLUE RECTANGLE CARD (Reference Image Left Accent) */
+.card-highlight-blue {
+    background: #4169E1;
+    color: #FFFFFF;
+    border: 1px solid #4169E1;
+    box-shadow: 0 12px 30px rgba(65, 105, 225, 0.28);
+}
+
+.card-highlight-blue .card-num-stat,
+.card-highlight-blue .bento-card-title {
+    color: #FFFFFF !important;
+}
+
+.card-highlight-blue .bento-card-desc {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* HIGHLIGHTED LIME ACCENT RECTANGLE CARD (Reference Image Center Accent) */
+.card-highlight-lime {
+    background-color: #D9F99D;
+    border: 1px solid #BEF264;
+    color: #111111;
+}
+
+.card-highlight-lime .card-num-stat,
+.card-highlight-lime .bento-card-title {
+    color: #111111 !important;
+}
+
+.card-highlight-lime .bento-card-desc {
+    color: #3F6212;
+}
+
+/* Stat Numbers & Typography */
+.card-num-stat {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.text-blue { color: #4169E1; }
+.text-dark { color: #111111; }
+
+.bento-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+}
+
+.bento-card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Quote Box Styling */
+.quote-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4169E1;
+    margin-bottom: 0.65rem;
+}
+
+.bento-quote {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.quote-author {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* Right Column Image Container */
+.card-image-showcase {
+    background-color: #111111;
+    padding: 0;
+    border-radius: 28px;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+    display: block;
+}
+
+/* Responsiveness */
+@media (max-width: 980px) {
+    .why-us-bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-image-showcase {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 680px) {
+    .bento-row,
+    .bento-row.row-three-cols {
+        grid-template-columns: 1fr;
+    }
+    .card-num-stat {
+        margin-bottom: 1.25rem;
+    }
+}
