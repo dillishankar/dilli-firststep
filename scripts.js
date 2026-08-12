@@ -217,3 +217,64 @@ function handleLeadSubmit(event) {
             submitBtn.disabled = false;
         });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = Array.from(document.querySelectorAll('.service-cover-card'));
+    const viewport = document.getElementById('cardDeckViewport');
+
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    let autoLoopTimer = null;
+
+    function updateDeck() {
+        cards.forEach((card, i) => {
+            card.classList.remove('is-center', 'is-left', 'is-right', 'is-hidden');
+
+            let offset = i - currentIndex;
+            if (offset < -1) offset += totalCards;
+            if (offset > 1) offset -= totalCards;
+
+            if (offset === 0) {
+                card.classList.add('is-center');
+            } else if (offset === 1) {
+                card.classList.add('is-right');
+            } else if (offset === -1) {
+                card.classList.add('is-left');
+            } else {
+                card.classList.add('is-hidden');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateDeck();
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const index = parseInt(card.dataset.index, 10);
+            if (index !== currentIndex) {
+                currentIndex = index;
+                updateDeck();
+                resetAutoLoop();
+            }
+        });
+    });
+
+    // Slowed down interval to 6.0 seconds for smooth viewing
+    function startAutoLoop() {
+        autoLoopTimer = setInterval(nextSlide, 6000);
+    }
+
+    function resetAutoLoop() {
+        clearInterval(autoLoopTimer);
+        startAutoLoop();
+    }
+
+    viewport.addEventListener('mouseenter', () => clearInterval(autoLoopTimer));
+    viewport.addEventListener('mouseleave', () => startAutoLoop());
+
+    updateDeck();
+    startAutoLoop();
+});
