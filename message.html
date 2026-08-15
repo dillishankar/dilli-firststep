@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dilli Web Studio — Websites for Growing Businesses</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/message.css">
     <link rel="script" href="scripts.js">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -23,116 +23,91 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="header-nav">
-        <div class="nav-pill">
-            <a href="#" class="brand-logo">
-                <img src="data/WebStudio-FinalLogo.png" alt="Dilli Web Studio Logo" class="brand-logo-img" />
-            </a>
+    <!-- PROFESSIONAL MESSAGE / INQUIRY SECTION -->
+    <section id="contact" class="contact-section reveal-on-scroll">
+        <div class="contact-container">
 
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#pricing" class="nav-link">Pricing</a></li>
-                <li><a href="projects.html" class="nav-link">View Work</a></li>
-                <li><a href="admin/index.html" class="nav-link">Admin</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <a href="https://wa.me/918825858292" target="_blank" class="btn-pill btn-primary">
-                    Get a Website <span class="btn-arrow">↗</span>
-                </a>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-    <section class="service-deck-section">
-        <div class="deck-container">
-            <div class="deck-header">
+            <!-- Header -->
+            <div class="contact-header">
                 <div class="badge-announcement">
-                    <span class="badge-dot"></span> OUR SERVICES
+                    <span class="badge-dot"></span> GET IN TOUCH
                 </div>
-                <h2 class="deck-title">Crafted Digital <span class="highlight-blue-italic">Experiences</span></h2>
-                <p class="deck-subtitle">High-performance web solutions tailored to elevate your brand and turn visitors
-                    into clients.</p>
+                <h2 class="contact-title">Let's Build Something <span class="highlight-blue-italic">Great</span></h2>
+                <p class="contact-subtitle">Have a project in mind or want to upgrade your website? Send a message below
+                    and we'll reply shortly.</p>
             </div>
 
-            <!-- 3D Cover Flow Deck Viewport -->
-            <div class="carousel-viewport" id="cardDeckViewport">
+            <!-- Glassmorphism Form Card -->
+            <div class="contact-glass-card">
+                <form id="websiteContactForm" class="contact-form" onsubmit="submitContactForm(event)">
 
-                <!-- Card 1: Static Website -->
-                <article class="service-cover-card" data-index="0">
-                    <div class="card-glass-content">
-                        <div class="card-top-info">
-                            <div class="card-badge">01 / PERFORMANCE</div>
-                            <div class="card-icon-box">
-                                <i class="fa-solid fa-code"></i>
+                    <div class="form-grid">
+                        <!-- Name Input -->
+                        <div class="input-group">
+                            <label for="contactName" class="input-label">Full Name</label>
+                            <div class="input-field-wrapper">
+                                <i class="fa-regular fa-user input-icon"></i>
+                                <input type="text" id="contactName" name="Name" placeholder="John Doe" required
+                                    class="custom-input" />
                             </div>
                         </div>
-                        <div class="card-main-info">
-                            <h3 class="card-service-title">Static Website</h3>
-                            <p class="card-service-desc">Ultra-fast, lightweight, and SEO-optimized static sites built
-                                for business landing pages and modern local services.</p>
-                        </div>
-                        <div class="card-footer-cta">
-                            <div class="price-tag"><span class="price-label">Starting at</span> <span
-                                    class="price-amount">₹4,999</span></div>
-                            <a href="#contact" class="btn-card outline">Get Started <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
 
-                <!-- Card 2: Birthday Special Websites -->
-                <article class="service-cover-card" data-index="1">
-                    <div class="card-glass-content">
-                        <div class="card-top-info">
-                            <div class="card-badge">02 / EXPERIENCES</div>
-                            <div class="card-icon-box">
-                                <i class="fa-solid fa-cake-candles"></i>
+                        <!-- Number Input -->
+                        <div class="input-group">
+                            <label for="contactPhone" class="input-label">Phone Number</label>
+                            <div class="input-field-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="contactPhone" name="Phone" placeholder="+91 98765 43210" required
+                                    class="custom-input" />
                             </div>
                         </div>
-                        <div class="card-main-info">
-                            <h3 class="card-service-title">Birthday Special Websites</h3>
-                            <p class="card-service-desc">Interactive, personalized surprise sites featuring memory
-                                timelines, music playlists, and secret gift messages.</p>
-                        </div>
-                        <div class="card-footer-cta">
-                            <div class="price-tag"><span class="price-label">Starting at</span> <span
-                                    class="price-amount">₹2,999</span></div>
-                            <a href="#contact" class="btn-card outline">Get Started <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
                     </div>
-                </article>
 
-                <!-- Card 3: Portfolio Websites -->
-                <article class="service-cover-card" data-index="2">
-                    <div class="card-glass-content">
-                        <div class="card-top-info">
-                            <div class="card-badge">03 / PERSONAL BRANDING</div>
-                            <div class="card-icon-box">
-                                <i class="fa-solid fa-user-astronaut"></i>
+                    <div class="form-grid">
+                        <!-- Email Input -->
+                        <div class="input-group">
+                            <label for="contactEmail" class="input-label">Email Address</label>
+                            <div class="input-field-wrapper">
+                                <i class="fa-regular fa-envelope input-icon"></i>
+                                <input type="email" id="contactEmail" name="Email" placeholder="john@example.com"
+                                    required class="custom-input" />
                             </div>
                         </div>
-                        <div class="card-main-info">
-                            <h3 class="card-service-title">Portfolio Websites</h3>
-                            <p class="card-service-desc">Apple-inspired showcase platforms tailored for developers,
-                                designers, freelancers, and creative professionals.</p>
-                        </div>
-                        <div class="card-footer-cta">
-                            <div class="price-tag"><span class="price-label">Starting at</span> <span
-                                    class="price-amount">₹3,500</span></div>
-                            <a href="#contact" class="btn-card outline">Get Started <i
-                                    class="fa-solid fa-arrow-right"></i></a>
+
+                        <!-- Subject Input -->
+                        <div class="input-group">
+                            <label for="contactSubject" class="input-label">Subject</label>
+                            <div class="input-field-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="contactSubject" name="Subject"
+                                    placeholder="Website Project / Inquiry" required class="custom-input" />
+                            </div>
                         </div>
                     </div>
-                </article>
 
+                    <!-- Message Textarea -->
+                    <div class="input-group full-width">
+                        <label for="contactMessage" class="input-label">Your Message</label>
+                        <div class="input-field-wrapper textarea-wrapper">
+                            <i class="fa-regular fa-comment-dots input-icon textarea-icon"></i>
+                            <textarea id="contactMessage" name="Message" rows="4"
+                                placeholder="Tell us about your project requirements..." required
+                                class="custom-input custom-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Action Button & Status -->
+                    <div class="form-action-wrapper">
+                        <button type="submit" id="contactSubmitBtn" class="btn-pill btn-primary submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane btn-arrow"></i>
+                        </button>
+                        <div id="contactFormStatus" class="contact-status-msg"></div>
+                    </div>
+
+                </form>
             </div>
+
         </div>
     </section>
 

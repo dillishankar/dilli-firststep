@@ -348,3 +348,59 @@ document.addEventListener('keydown', function (event) {
         closeModal();
     }
 });
+
+// Contact Form Submission Handler
+function submitContactForm(event) {
+    event.preventDefault();
+
+    const form = document.getElementById("websiteContactForm");
+    const submitBtn = document.getElementById("contactSubmitBtn");
+    const statusMsg = document.getElementById("contactFormStatus");
+
+    const name = document.getElementById("contactName").value.trim();
+    const phone = document.getElementById("contactPhone").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
+
+    if (!name || !phone || !email || !subject || !message) return;
+
+    // Loading State
+    submitBtn.innerHTML = `<span>Sending...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+    submitBtn.disabled = true;
+
+    // Payload formatted for Google Apps Script sheet
+    const formData = new URLSearchParams();
+    formData.append("Name", name);
+    formData.append("Phone", phone);
+    formData.append("Email", email);
+    formData.append("Subject", subject);
+    formData.append("Message", message);
+
+    fetch(GOOGLE_SHEET_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData.toString()
+    })
+    .then(() => {
+        submitBtn.innerHTML = `<span>Sent Successfully!</span> <i class="fa-solid fa-check"></i>`;
+        statusMsg.className = "contact-status-msg success";
+        statusMsg.innerText = "Thank you! Your message has been sent.";
+        form.reset();
+
+        setTimeout(() => {
+            submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane btn-arrow"></i>`;
+            submitBtn.disabled = false;
+        }, 4000);
+    })
+    .catch((error) => {
+        console.error("Error submitting contact form:", error);
+        submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane btn-arrow"></i>`;
+        statusMsg.className = "contact-status-msg error";
+        statusMsg.innerText = "Failed to send message. Please try WhatsApp.";
+        submitBtn.disabled = false;
+    });
+}
