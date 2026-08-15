@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects Management — Dilli Web Studio</title>
+    <link rel="stylesheet" href="css/admin-common.css" />
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div>
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                        alt="Logo" /></div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
+                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link active"><i
+                                class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
+                                class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link"><i
+                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i
+                                class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i
+                                class="fa-solid fa-sliders"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div style="padding: 1.25rem 0.85rem; border-top: var(--border-thin);">
+                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <h1 class="page-title">Projects</h1>
+                </div>
+            </header>
+
+            <main class="admin-content-body">
+                <!-- Header Actions Bar -->
+                <div class="glass-admin-card"
+                    style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                    <div>
+                        <h2 style="font-size: 1.2rem; font-weight:700;">All Web Projects</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage, edit, and feature portfolio
+                            items on the main website.</p>
+                    </div>
+                    <button class="btn-pill-admin btn-primary-admin" onclick="openAdminModal('projectFormModal')"><i
+                            class="fa-solid fa-plus"></i> Add Project</button>
+                </div>
+
+                <!-- Filters & Search Bar -->
+                <div class="glass-admin-card" style="display:flex; gap:1rem; flex-wrap:wrap; padding: 1rem;">
+                    <input type="text" class="admin-input" placeholder="Search projects..."
+                        style="flex-grow:1; max-width: 320px;" />
+                    <select class="admin-input" style="width: 160px;">
+                        <option>All Categories</option>
+                        <option>Full-Stack</option>
+                        <option>Static Site</option>
+                    </select>
+                    <select class="admin-input" style="width: 140px;">
+                        <option>All Status</option>
+                        <option>Published</option>
+                        <option>Draft</option>
+                    </select>
+                </div>
+
+                <!-- Data Table -->
+                <div class="glass-admin-card">
+                    <div class="table-responsive-custom">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Preview</th>
+                                    <th>Project Name</th>
+                                    <th>Category</th>
+                                    <th>Technologies</th>
+                                    <th>Featured</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="data/poster.png" class="table-img-thumb" alt="Self Made" /></td>
+                                    <td><strong>Self Made</strong></td>
+                                    <td>Full-Stack</td>
+                                    <td>HTML, CSS, JS</td>
+                                    <td><i class="fa-solid fa-star" style="color: #EAB308;"></i> Yes</td>
+                                    <td><span class="status-badge published">Published</span></td>
+                                    <td>
+                                        <button
+                                            style="background:none; border:none; color:var(--accent-blue); cursor:pointer; margin-right:0.5rem;"
+                                            onclick="openAdminModal('projectFormModal')"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button style="background:none; border:none; color:#EF4444; cursor:pointer;"
+                                            onclick="openAdminModal('deleteConfirmModal')"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add/Edit Project Form Modal -->
+    <div class="custom-modal-backdrop" id="projectFormModal">
+        <div class="custom-modal-card">
+            <button class="modal-close-btn" onclick="closeAdminModal('projectFormModal')">&times;</button>
+            <h3 style="font-weight: 800; margin-bottom: 1.25rem;">Add / Edit Project</h3>
+            <form onsubmit="event.preventDefault(); closeAdminModal('projectFormModal');">
+                <div class="admin-form-group">
+                    <label>Project Name</label>
+                    <input type="text" class="admin-input" placeholder="e.g. Self Made E-commerce" required />
+                </div>
+                <div class="admin-form-group">
+                    <label>Category</label>
+                    <input type="text" class="admin-input" placeholder="e.g. Full-Stack / Portfolio" />
+                </div>
+                <div class="admin-form-group">
+                    <label>Technologies Used</label>
+                    <input type="text" class="admin-input" placeholder="HTML, CSS, JS, Bootstrap" />
+                </div>
+                <div class="admin-form-group">
+                    <label>Upload Project Image</label>
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'projectImgPreview')" />
+                    <div class="image-preview-container" id="projectImgPreview">
+                        <span style="color:var(--text-secondary); font-size: 0.85rem;">Image preview will appear
+                            here</span>
+                    </div>
+                </div>
+                <div style="display:flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn-pill-admin btn-secondary-admin"
+                        onclick="closeAdminModal('projectFormModal')">Cancel</button>
+                    <button type="submit" class="btn-pill-admin btn-primary-admin">Save Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="custom-modal-backdrop" id="deleteConfirmModal">
+        <div class="custom-modal-card" style="width: min(90%, 400px); text-align: center;">
+            <i class="fa-solid fa-triangle-exclamation"
+                style="font-size: 2.5rem; color: #EF4444; margin-bottom: 1rem;"></i>
+            <h3 style="font-weight:800; margin-bottom: 0.5rem;">Are you sure?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">This action cannot be
+                undone. This item will be removed permanently.</p>
+            <div style="display:flex; justify-content: center; gap: 0.75rem;">
+                <button class="btn-pill-admin btn-secondary-admin"
+                    onclick="closeAdminModal('deleteConfirmModal')">Cancel</button>
+                <button class="btn-pill-admin btn-danger-admin" onclick="closeAdminModal('deleteConfirmModal')">Delete
+                    Permanently</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+</body>
+
+</html>

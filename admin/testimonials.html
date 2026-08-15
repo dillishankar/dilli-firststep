@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials — Dilli Web Studio</title>
+    <link rel="stylesheet" href="css/admin-common.css" />
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div>
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                        alt="Logo" /></div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
+                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i
+                                class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
+                                class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link active"><i
+                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i
+                                class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i
+                                class="fa-solid fa-sliders"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div style="padding: 1.25rem 0.85rem; border-top: var(--border-thin);">
+                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <h1 class="page-title">Client Reviews & Testimonials</h1>
+                </div>
+            </header>
+
+            <main class="admin-content-body">
+                <div class="glass-admin-card" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <h2 style="font-size: 1.2rem; font-weight:700;">Client Reviews</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage scrolling marquee
+                            testimonials.</p>
+                    </div>
+                    <button class="btn-pill-admin btn-primary-admin" onclick="openAdminModal('testimonialModal')"><i
+                            class="fa-solid fa-plus"></i> Add Testimonial</button>
+                </div>
+
+                <div class="glass-admin-card">
+                    <div class="table-responsive-custom">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Designation</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="display:flex; align-items:center; gap:0.5rem;">
+                                        <div class="table-avatar-thumb"
+                                            style="background:var(--accent-blue); color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.8rem;">
+                                            PS</div>
+                                        <strong>Priya Sharma</strong>
+                                    </td>
+                                    <td>Boutique Owner</td>
+                                    <td style="color:#EAB308;"><i class="fa-solid fa-star"></i> 5.0</td>
+                                    <td>"The custom design and smooth animations brought our brand to life!"</td>
+                                    <td>
+                                        <button
+                                            style="background:none; border:none; color:var(--accent-blue); cursor:pointer;"
+                                            onclick="openAdminModal('testimonialModal')"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button style="background:none; border:none; color:#EF4444; cursor:pointer;"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Testimonial Form Modal -->
+    <div class="custom-modal-backdrop" id="testimonialModal">
+        <div class="custom-modal-card">
+            <button class="modal-close-btn" onclick="closeAdminModal('testimonialModal')">&times;</button>
+            <h3 style="font-weight: 800; margin-bottom: 1.25rem;">Add / Edit Testimonial</h3>
+            <form onsubmit="event.preventDefault(); closeAdminModal('testimonialModal');">
+                <div class="admin-form-group">
+                    <label>Client Name</label>
+                    <input type="text" class="admin-input" placeholder="e.g. Rajesh Kumar" required />
+                </div>
+                <div class="admin-form-group">
+                    <label>Designation / Role</label>
+                    <input type="text" class="admin-input" placeholder="e.g. Tech Founder" />
+                </div>
+                <div class="admin-form-group">
+                    <label>Rating (Stars)</label>
+                    <select class="admin-input">
+                        <option>5 Stars</option>
+                        <option>4 Stars</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label>Review Text</label>
+                    <textarea class="admin-input" rows="3" placeholder="Enter review quote..."></textarea>
+                </div>
+                <div style="display:flex; justify-content: flex-end; gap: 0.75rem;">
+                    <button type="button" class="btn-pill-admin btn-secondary-admin"
+                        onclick="closeAdminModal('testimonialModal')">Cancel</button>
+                    <button type="submit" class="btn-pill-admin btn-primary-admin">Save Testimonial</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/admin-script.js"></script>
+</body>
+
+</html>

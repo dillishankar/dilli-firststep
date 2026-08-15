@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard — Dilli Web Studio</title>
+    <link rel="stylesheet" href="css/admin-common.css" />
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <!-- 3rd Fix: Logo Sizing Fix -->
+                    <img src="../data/WebStudio-FinalLogo.png" alt="Dilli Web Studio" class="brand-logo-img" />
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link active"><i
+                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i
+                                class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
+                                class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link"><i
+                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i
+                                class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i
+                                class="fa-solid fa-sliders"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div style="padding: 1.25rem 0.85rem; border-top: 1px solid var(--border-subtle);">
+                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <h1 style="font-size: 1.25rem; font-weight: 700;">Dashboard Overview</h1>
+                <div class="topbar-right">
+
+                    <!-- 1st Fix: Notification Bell Dropdown -->
+                    <div class="notif-container">
+                        <button class="notif-badge-btn" id="notifBtn">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="notif-dot"></span>
+                        </button>
+                        <div class="dropdown-panel" id="notifDropdown">
+                            <div class="dropdown-header">Notifications (2)</div>
+                            <div class="dropdown-body">
+                                <div class="notif-item">
+                                    <strong>New Project Inquiry</strong>
+                                    <p style="color:var(--text-secondary);">Priya Sharma requested a quote.</p>
+                                </div>
+                                <div class="notif-item">
+                                    <strong>System Backup</strong>
+                                    <p style="color:var(--text-secondary);">Database successfully synced.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2nd Fix: Interactive Profile Trigger -->
+                    <div class="admin-profile-btn" id="profileBtn">
+                        <img src="../data/pic-of-mee.png" alt="Dilli Shankar" class="admin-avatar" />
+                        <span style="font-weight: 600; font-size: 0.9rem;">Dilli Shankar</span>
+                        <i class="fa-solid fa-chevron-down"
+                            style="font-size: 0.75rem; color: var(--text-secondary);"></i>
+                    </div>
+
+                </div>
+            </header>
+
+            <main style="padding: 2rem;">
+                <div class="stats-grid">
+                    <div class="glass-admin-card stat-card" style="margin-bottom:0;">
+                        <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 800;">12</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Total Projects</div>
+                        </div>
+                    </div>
+                    <div class="glass-admin-card stat-card" style="margin-bottom:0;">
+                        <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 800;">8</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Total Services</div>
+                        </div>
+                    </div>
+                    <div class="glass-admin-card stat-card" style="margin-bottom:0;">
+                        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 800;">6</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Testimonials</div>
+                        </div>
+                    </div>
+                    <div class="glass-admin-card stat-card" style="margin-bottom:0;">
+                        <div class="stat-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 800;">24</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Messages</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-admin-card" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="font-weight: 700;">Quick Actions</div>
+                    <div style="display:flex; gap:0.75rem;">
+                        <a href="projects.html" class="btn-pill-admin btn-primary-admin"><i
+                                class="fa-solid fa-plus"></i> Add Project</a>
+                        <a href="services.html" class="btn-pill-admin btn-secondary-admin"><i
+                                class="fa-solid fa-plus"></i> Add Service</a>
+                        <a href="testimonials.html" class="btn-pill-admin btn-secondary-admin"><i
+                                class="fa-solid fa-plus"></i> Add Testimonial</a>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem;">
+                    <div class="glass-admin-card">
+                        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem;">Recent Projects</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Project</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="display:flex; align-items:center; gap:0.6rem;">
+                                        <img src="../data/poster.png" class="table-img-thumb" alt="Thumb" />
+                                        <strong>Self Made</strong>
+                                    </td>
+                                    <td>E-Commerce</td>
+                                    <td><span class="status-badge published">Published</span></td>
+                                    <td><a href="projects.html" style="color:var(--accent-blue);"><i
+                                                class="fa-solid fa-pen-to-square"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="glass-admin-card">
+                        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem;">Recent Messages</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Sender</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Priya Sharma</strong></td>
+                                    <td>Website Quote</td>
+                                    <td><span class="status-badge new">New</span></td>
+                                    <td><a href="messages.html" style="color:var(--accent-blue);"><i
+                                                class="fa-solid fa-eye"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Quick Profile Modal (Opens on Profile Click) -->
+    <div class="custom-modal-backdrop" id="profileModal">
+        <div class="custom-modal-card">
+            <button class="modal-close-btn" onclick="closeAdminModal('profileModal')">&times;</button>
+            <div style="text-align: center; margin-bottom: 1.25rem;">
+                <img src="../data/pic-of-mee.png" class="admin-avatar"
+                    style="width: 70px; height: 70px; margin-bottom: 0.5rem;" />
+                <h3 style="font-weight: 800;">Dilli Shankar</h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">Super Admin</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="settings.html" class="btn-pill-admin btn-secondary-admin" style="justify-content: center;"><i
+                        class="fa-solid fa-sliders"></i> Account Settings</a>
+                <a href="login.html" class="btn-pill-admin"
+                    style="background:#EF4444; color:#FFF; justify-content: center;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+</body>
+
+</html>

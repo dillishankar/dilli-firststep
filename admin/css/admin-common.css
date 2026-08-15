@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #F7F7F5;
+    --text-primary: #111111;
+    --text-secondary: #666666;
+    --color-white: #FFFFFF;
+    --border-subtle: #E8E8E6;
+    --accent-blue: #4169E1;
+    --accent-dark: #1A1A1A;
+    --font-family: 'Manrope', -apple-system, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-card: 18px;
+    --radius-pill: 9999px;
+
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+    --shadow-dropdown: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 0.92rem;
+    overflow-x: hidden;
+}
+
+/* Layout */
+.admin-layout { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+    width: 260px;
+    background: var(--color-white);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-logo-img {
+    height: 42px;
+    max-width: 170px;
+    object-fit: contain;
+}
+
+.sidebar-menu { list-style: none; padding: 1.25rem 0.85rem; flex-grow: 1; }
+.sidebar-item { margin-bottom: 0.35rem; }
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+.sidebar-link.active {
+    background-color: #111;
+    color: #FFF;
+}
+
+.admin-main { margin-left: 260px; flex-grow: 1; display: flex; flex-direction: column; }
+
+.admin-topbar {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.topbar-right { display: flex; align-items: center; gap: 1.5rem; position: relative; }
+
+/* Notifications Dropdown */
+.notif-container { position: relative; }
+.notif-badge-btn {
+    position: relative;
+    background: none; border: none;
+    font-size: 1.25rem; color: var(--text-secondary);
+    cursor: pointer; padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.notif-badge-btn:hover { background: var(--bg-primary); color: var(--text-primary); }
+.notif-dot {
+    position: absolute; top: 6px; right: 6px;
+    width: 8px; height: 8px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+}
+
+.dropdown-panel {
+    position: absolute;
+    top: 50px; right: 0;
+    width: 320px;
+    background: #FFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-dropdown);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+}
+.dropdown-panel.show { display: flex; }
+.dropdown-header { padding: 1rem; font-weight: 700; border-bottom: 1px solid var(--border-subtle); }
+.dropdown-body { max-height: 260px; overflow-y: auto; }
+.notif-item { padding: 0.85rem 1rem; border-bottom: 1px solid #F2F2F0; font-size: 0.85rem; cursor: pointer; }
+.notif-item:hover { background: var(--bg-primary); }
+
+/* Profile Trigger */
+.admin-profile-btn {
+    display: flex; align-items: center; gap: 0.75rem;
+    cursor: pointer; padding: 4px 8px; border-radius: var(--radius-pill);
+    transition: background 0.2s;
+}
+.admin-profile-btn:hover { background: var(--bg-primary); }
+.admin-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+
+/* Shared Cards & UI Components */
+.glass-admin-card {
+    background: var(--color-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-pill-admin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border-radius: var(--radius-pill); font-weight: 600; font-size: 0.85rem;
+    padding: 0.65rem 1.25rem; cursor: pointer; border: none; text-decoration: none;
+}
+.btn-primary-admin { background: #111; color: #FFF; transition: 0.2s; }
+.btn-primary-admin:hover { background: var(--accent-blue); }
+.btn-secondary-admin { background: #FFF; color: #111; border: 1px solid var(--border-subtle); }
+
+.admin-form-group { margin-bottom: 1rem; text-align: left; }
+.admin-form-group label { display: block; font-weight: 600; margin-bottom: 0.35rem; font-size: 0.85rem; }
+.admin-input { width: 100%; padding: 0.7rem 0.9rem; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--bg-primary); }
+
+/* Responsive Toggle */
+.sidebar-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0.5rem;
+}
+
+@media (max-width: 991px) {
+    .sidebar-toggle-btn { display: block; }
+}
+
+/* Modals */
+.custom-modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 9999;
+}
+.custom-modal-backdrop.active { display: flex; }
+.custom-modal-card {
+    background: #FFF; border-radius: var(--radius-card);
+    width: min(90%, 500px); padding: 2rem; position: relative;
+}
+.modal-close-btn { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; }

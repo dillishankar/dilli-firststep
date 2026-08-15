@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Messages — Dilli Web Studio</title>
+    <link rel="stylesheet" href="css/admin-common.css" />
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div>
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                        alt="Logo" /></div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
+                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i
+                                class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
+                                class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link"><i
+                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link active"><i
+                                class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i
+                                class="fa-solid fa-sliders"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div style="padding: 1.25rem 0.85rem; border-top: var(--border-thin);">
+                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <h1 class="page-title">Inquiries & Messages</h1>
+                </div>
+            </header>
+
+            <main class="admin-content-body">
+                <div class="glass-admin-card">
+                    <div class="table-responsive-custom">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Sender Name</th>
+                                    <th>Email / Phone</th>
+                                    <th>Subject</th>
+                                    <th>Date Received</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Anand Mathews</strong></td>
+                                    <td>anand@example.com<br /><small>+91 9876543210</small></td>
+                                    <td>Website Consultation Inquiry</td>
+                                    <td>Aug 15, 2026</td>
+                                    <td><span class="status-badge new">New</span></td>
+                                    <td>
+                                        <button class="btn-pill-admin btn-secondary-admin"
+                                            style="padding: 0.3rem 0.75rem; font-size: 0.75rem;"
+                                            onclick="openAdminModal('viewMessageModal')"><i class="fa-solid fa-eye"></i>
+                                            View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Message Details Modal -->
+    <div class="custom-modal-backdrop" id="viewMessageModal">
+        <div class="custom-modal-card">
+            <button class="modal-close-btn" onclick="closeAdminModal('viewMessageModal')">&times;</button>
+            <h3 style="font-weight: 800; margin-bottom: 0.5rem;">Message Details</h3>
+            <div
+                style="border-bottom: var(--border-thin); padding-bottom: 1rem; margin-bottom: 1rem; font-size: 0.85rem;">
+                <p><strong>From:</strong> Anand Mathews (anand@example.com)</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Subject:</strong> Website Consultation Inquiry</p>
+            </div>
+            <p
+                style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); font-size: 0.9rem; line-height: 1.6;">
+                "Hi Dilli, I would like to get a business website built for my retail shop. Please let me know your
+                availability for a call."
+            </p>
+            <div style="display:flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+                <button class="btn-pill-admin btn-secondary-admin" onclick="closeAdminModal('viewMessageModal')">Mark as
+                    Read</button>
+                <button class="btn-pill-admin btn-danger-admin"
+                    onclick="closeAdminModal('viewMessageModal')">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/admin-script.js"></script>
+</body>
+
+</html>
