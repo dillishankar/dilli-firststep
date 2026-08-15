@@ -8,23 +8,30 @@
 /* ---------- Theme Color Variables & Tokens ---------- */
 :root {
     /* Brand & Accent Palette */
-    --accent-primary: #4f46e5;       /* Indigo primary */
+    --accent-primary: #4f46e5;
+    /* Indigo primary */
     --accent-primary-hover: #4338ca;
     --accent-light: #eef2ff;
-    
+
     /* Dark Sidebar & Navigation */
-    --bg-sidebar: #0f172a;           /* Deep Slate Blue */
+    --bg-sidebar: #0f172a;
+    /* Deep Slate Blue */
     --bg-sidebar-hover: #1e293b;
     --sidebar-border: rgba(255, 255, 255, 0.08);
 
     /* Main Interface Colors */
-    --bg-primary: #f8fafc;           /* Clean Off-White Background */
-    --bg-surface: #ffffff;           /* Elevated Card White */
-    
+    --bg-primary: #f8fafc;
+    /* Clean Off-White Background */
+    --bg-surface: #ffffff;
+    /* Elevated Card White */
+
     /* Typography Colors */
-    --text-primary: #0f172a;         /* High contrast slate */
-    --text-secondary: #64748b;       /* Soft muted slate */
-    --text-muted: #94a3b8;           /* Placeholder slate */
+    --text-primary: #0f172a;
+    /* High contrast slate */
+    --text-secondary: #64748b;
+    /* Soft muted slate */
+    --text-muted: #94a3b8;
+    /* Placeholder slate */
     --text-on-dark: #f8fafc;
 
     /* Borders & Dividers */
@@ -59,7 +66,9 @@
 }
 
 /* ---------- Master CSS Reset ---------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -78,7 +87,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font-family: inherit;
     font-size: inherit;
 }
@@ -124,7 +136,7 @@ img {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.admin-sidebar > div:first-child {
+.admin-sidebar>div:first-child {
     flex: 1;
 }
 
@@ -308,21 +320,36 @@ img {
     border: 2px solid #ffffff;
 }
 
+/* ---------- Clean & Professional Notification Dropdown ---------- */
+.notif-container {
+    position: relative;
+}
+
+/* Ensure the bell icon wrapper is the positioning parent */
+.notif-wrapper,
+.notif-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Default-a hide panni vekka */
 .dropdown-panel {
+    display: none;
+    /* Hide by default */
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 10px);
     right: 0;
-    width: min(350px, calc(100vw - 2rem));
-    background: var(--bg-surface);
-    border: var(--border-thin);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 200;
+    left: auto;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Click panni JavaScript via-va '.show' class add aagum boadhu dhaan display aagum */
+.dropdown-panel.show {
+    display: block;
 }
 
 .dropdown-panel.show {
@@ -332,53 +359,53 @@ img {
 }
 
 .dropdown-header {
-    padding: 1rem 1.15rem;
+    padding: 0.85rem 1rem;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: #0f172a;
     background: #f8fafc;
-    border-bottom: var(--border-thin);
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dropdown-body {
-    max-height: 320px;
+    max-height: 280px;
+    /* Adds scrollbar if list grows */
     overflow-y: auto;
 }
 
 .notif-item {
-    padding: 0.9rem 1.15rem;
-    border-bottom: var(--border-thin);
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
     transition: background 0.15s ease;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
 }
 
 .notif-item:hover {
     background: #f8fafc;
 }
 
-.notif-item:last-child {
-    border-bottom: 0;
-}
-
 .notif-item strong {
     display: block;
     font-size: 0.85rem;
-    color: var(--text-primary);
-    margin-bottom: 0.15rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .notif-item p {
     margin: 0;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-/* ---------- Main Dashboard Content Body ---------- */
-.admin-content-body, main {
-    padding: 2rem;
-    flex: 1;
-}
-
-.admin-content-body > * + *, main > * + * {
-    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.4;
 }
 
 /* ---------- Card Modern UI Containers ---------- */
@@ -598,7 +625,7 @@ input[type="file"].admin-input {
     font-weight: 700;
 }
 
-.status-badge.published, 
+.status-badge.published,
 .status-badge.active {
     background: var(--status-success-bg);
     color: var(--status-success-text);
@@ -850,7 +877,8 @@ input[type="file"].admin-input {
         padding: 0 1.25rem !important;
     }
 
-    .admin-content-body, main {
+    .admin-content-body,
+    main {
         padding: 1.25rem !important;
     }
 

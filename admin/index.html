@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+    <!-- 1. AUTH GUARD: Must run FIRST before any body content renders -->
+    <script>
+        if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard — Dilli Web Studio</title>
@@ -33,7 +40,7 @@
                 </ul>
             </div>
             <div style="padding: 1.25rem 0.85rem; border-top: 1px solid var(--border-subtle);">
-                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                <a href="#" id="logoutBtn" class="sidebar-link" style="color: #EF4444;"><i
                         class="fa-solid fa-right-from-bracket"></i> Logout</a>
             </div>
         </aside>
@@ -43,7 +50,6 @@
             <!-- Professional Top Navigation Bar -->
             <header class="admin-topbar">
                 <div class="topbar-left">
-                    <!-- Clean Professional Hamburger Toggle -->
                     <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
                         <i class="fa-solid fa-bars-staggered"></i>
                     </button>
@@ -73,7 +79,7 @@
                     </div>
 
                     <!-- Refined Profile Trigger -->
-                    <button class="admin-profile-btn" id="profileBtn" onclick="openAdminModal('profileModal')">
+                    <button class="admin-profile-btn" id="profileBtn">
                         <img src="../data/pic-of-mee.png" alt="DilliShankar K" class="admin-avatar" />
                         <span style="font-weight: 600; font-size: 0.9rem;">DilliShankar K</span>
                         <i class="fa-solid fa-chevron-down profile-chevron"></i>
@@ -187,7 +193,7 @@
     <!-- Mobile Backdrop -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <!-- Updated Quick Profile Modal -->
+    <!-- Quick Profile Modal -->
     <div class="custom-modal-backdrop" id="profileModal">
         <div class="custom-modal-card profile-card-modal">
             <button class="modal-close-btn" onclick="closeAdminModal('profileModal')"
@@ -204,7 +210,7 @@
                         <i class="fa-solid fa-sliders"></i>
                         <span>Account Settings</span>
                     </a>
-                    <a href="login.html" class="btn-pill-admin btn-danger-admin profile-btn">
+                    <a href="#" id="modalLogoutBtn" class="btn-pill-admin btn-danger-admin profile-btn">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span>Log Out</span>
                     </a>

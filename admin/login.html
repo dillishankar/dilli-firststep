@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login — Dilli Web Studio</title>
-    <!-- Explicit relative paths inside admin/ directory -->
     <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -18,7 +17,7 @@
         <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.75rem;">Enter your credentials to
             manage FirstStep Ahead.</p>
 
-        <form onsubmit="event.preventDefault(); window.location.href='index.html';">
+        <form onsubmit="handleAdminLogin(event)">
             <div class="admin-form-group" style="text-align: left;">
                 <label for="adminEmail">Email or Username</label>
                 <input type="text" id="adminEmail" class="admin-input" placeholder="admin@dilliwebstudio.com"
