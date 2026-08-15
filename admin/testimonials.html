@@ -7,6 +7,11 @@
     <title>Testimonials — Dilli Web Studio</title>
     <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script>
+        if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -14,18 +19,26 @@
         <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
             <div>
-                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo1.png" class="brand-logo-img" alt="Logo" /></div>
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo1.png" class="brand-logo-img"
+                        alt="Logo" /></div>
                 <ul class="sidebar-menu">
-                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
-                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link active"><i class="fa-solid fa-quote-right"></i> Testimonials</a></li>
-                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i class="fa-solid fa-envelope"></i> Messages</a></li>
-                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i class="fa-solid fa-sliders"></i> Settings</a></li>
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
+                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i
+                                class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
+                                class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link active"><i
+                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i
+                                class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link"><i
+                                class="fa-solid fa-sliders"></i> Settings</a></li>
                 </ul>
             </div>
             <div style="padding: 1.25rem 0.85rem; border-top: var(--border-thin);">
-                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <a href="#" id="logoutBtn" class="sidebar-link" style="color: #EF4444;"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
             </div>
         </aside>
 
@@ -35,17 +48,21 @@
                     <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
                         <i class="fa-solid fa-bars"></i>
                     </button>
-                    <h1 class="page-title" style="font-size: 1.25rem; font-weight: 700;">Client Reviews & Testimonials</h1>
+                    <h1 class="page-title" style="font-size: 1.25rem; font-weight: 700;">Client Reviews & Testimonials
+                    </h1>
                 </div>
             </header>
 
             <main class="admin-content-body">
-                <div class="glass-admin-card" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                <div class="glass-admin-card"
+                    style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
                     <div>
                         <h2 style="font-size: 1.2rem; font-weight:700;">Client Reviews</h2>
-                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage scrolling marquee testimonials.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage scrolling marquee
+                            testimonials.</p>
                     </div>
-                    <button class="btn-pill-admin btn-primary-admin" onclick="openAdminModal('testimonialModal')"><i class="fa-solid fa-plus"></i> Add Testimonial</button>
+                    <button class="btn-pill-admin btn-primary-admin" onclick="openAdminModal('testimonialModal')"><i
+                            class="fa-solid fa-plus"></i> Add Testimonial</button>
                 </div>
 
                 <div class="glass-admin-card">
@@ -63,15 +80,21 @@
                             <tbody>
                                 <tr>
                                     <td style="display:flex; align-items:center; gap:0.5rem;">
-                                        <div class="table-avatar-thumb" style="background:var(--accent-blue); color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.8rem; width:32px; height:32px; border-radius:50%;">PS</div>
+                                        <div class="table-avatar-thumb"
+                                            style="background:var(--accent-blue); color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.8rem; width:32px; height:32px; border-radius:50%;">
+                                            PS</div>
                                         <strong>Priya Sharma</strong>
                                     </td>
                                     <td>Boutique Owner</td>
                                     <td style="color:#EAB308;"><i class="fa-solid fa-star"></i> 5.0</td>
                                     <td>"The custom design and smooth animations brought our brand to life!"</td>
                                     <td>
-                                        <button style="background:none; border:none; color:var(--accent-blue); cursor:pointer;" onclick="openAdminModal('testimonialModal')"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <button style="background:none; border:none; color:#EF4444; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                                        <button
+                                            style="background:none; border:none; color:var(--accent-blue); cursor:pointer;"
+                                            onclick="openAdminModal('testimonialModal')"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button style="background:none; border:none; color:#EF4444; cursor:pointer;"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -111,7 +134,8 @@
                     <textarea class="admin-input" rows="3" placeholder="Enter review quote..."></textarea>
                 </div>
                 <div style="display:flex; justify-content: flex-end; gap: 0.75rem;">
-                    <button type="button" class="btn-pill-admin btn-secondary-admin" onclick="closeAdminModal('testimonialModal')">Cancel</button>
+                    <button type="button" class="btn-pill-admin btn-secondary-admin"
+                        onclick="closeAdminModal('testimonialModal')">Cancel</button>
                     <button type="submit" class="btn-pill-admin btn-primary-admin">Save Testimonial</button>
                 </div>
             </form>

@@ -7,6 +7,11 @@
     <title>Services Management — Dilli Web Studio</title>
     <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script>
+        if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
         <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
             <div>
-                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo1.png" class="brand-logo-img"
                         alt="Logo" /></div>
                 <ul class="sidebar-menu">
                     <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
@@ -32,7 +37,7 @@
                 </ul>
             </div>
             <div style="padding: 1.25rem 0.85rem; border-top: var(--border-thin);">
-                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
+                <a href="#" id="logoutBtn" class="sidebar-link" style="color: #EF4444;"><i
                         class="fa-solid fa-right-from-bracket"></i> Logout</a>
             </div>
         </aside>

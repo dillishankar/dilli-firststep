@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (e) => {
         const toggleBtn = e.target.closest('#sidebarToggle');
-        
+
         // Toggle Sidebar open/close
         if (toggleBtn && sidebar) {
             sidebar.classList.toggle('active');
@@ -88,3 +88,57 @@ function handleAdminLogin(event) {
     sessionStorage.setItem('isAdminLoggedIn', 'true');
     window.location.href = 'index.html';
 }
+
+/**
+ * Dynamic Image Preview Helper
+ * Reads local file input and sets target image src
+ */
+window.previewImage = function (event, previewId) {
+    const file = event.target.files[0];
+    const previewElement = document.getElementById(previewId);
+
+    if (file && previewElement) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewElement.src = e.target.result;
+            previewElement.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+// settings
+
+function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.settings-tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).style.display = 'block';
+            btnElement.classList.add('active');
+        }
+
+        function previewProfileImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                document.getElementById('avatarPreview').src = reader.result;
+                const topbarAvatar = document.getElementById('topbarAvatar');
+                if (topbarAvatar) topbarAvatar.src = reader.result;
+            };
+            if (event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function handleProfileSave(e) {
+            e.preventDefault();
+            alert('Profile details & avatar saved successfully!');
+        }
+
+        function handlePasswordUpdate(e) {
+            e.preventDefault();
+            const newPass = document.getElementById('newPass').value;
+            const confirmPass = document.getElementById('confirmPass').value;
+            if (newPass !== confirmPass) {
+                alert('New passwords do not match!');
+                return;
+            }
+            alert('Password updated successfully!');
+        }
