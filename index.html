@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dilli Web Studio — Websites for Growing Businesses</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/testimonial.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="icon" type="image/png" href="data/WebStudio-FinalLogo2.png">    <link rel="apple-touch-icon" href="data/WebStudio-FinalLogo2.png">
+    <link rel="icon" type="image/png" href="data/WebStudio-FinalLogo2.png">
+    <link rel="apple-touch-icon" href="data/WebStudio-FinalLogo2.png">
 
     <!-- Typography: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -736,6 +737,179 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="testimonials-header">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from the people who trusted us to bring their idea of life.</p>
+            </div>
+
+            <div class="marquee-wrapper">
+                <!-- Row 1: Right to Left -->
+                <div class="marquee-track marquee-left">
+                    <div class="marquee-content">
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Dilli Portfolio', 'Working with Dilli was an absolute breeze. The site speed and UI design exceeded all expectations!', 'DP', 'Client / Founder')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Dilli</span>
+                                <span class="client-title">Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Priya Sharma', 'The custom design and smooth animations brought our brand to life. Highly recommended!', 'PS', 'Boutique Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Priya</span>
+                                <span class="client-title">Sharma</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Rajesh Kumar', 'Exceptional service and quick delivery. The lead generation setup boosted our sales directly.', 'RK', 'Tech Founder')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Rajesh</span>
+                                <span class="client-title">Kumar</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Anand M', 'Clean code, modern UI, and absolute professionalism throughout the project.', 'AM', 'Startup Lead')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Anand</span>
+                                <span class="client-title">Mathews</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate content for seamless infinite looping -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Dilli Portfolio', 'Working with Dilli was an absolute breeze. The site speed and UI design exceeded all expectations!', 'DP', 'Client / Founder')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Dilli</span>
+                                <span class="client-title">Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Priya Sharma', 'The custom design and smooth animations brought our brand to life. Highly recommended!', 'PS', 'Boutique Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Priya</span>
+                                <span class="client-title">Sharma</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Rajesh Kumar', 'Exceptional service and quick delivery. The lead generation setup boosted our sales directly.', 'RK', 'Tech Founder')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Rajesh</span>
+                                <span class="client-title">Kumar</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Anand M', 'Clean code, modern UI, and absolute professionalism throughout the project.', 'AM', 'Startup Lead')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Anand</span>
+                                <span class="client-title">Mathews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Left to Right -->
+                <div class="marquee-track marquee-right">
+                    <div class="marquee-content">
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Suresh V', 'The attention to detail and responsiveness made this project a huge success.', 'SV', 'E-commerce Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Suresh</span>
+                                <span class="client-title">Verma</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Kavya R', 'Loved the minimalist Apple-inspired aesthetic. Exactly what our business needed.', 'KR', 'Creative Director')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Kavya</span>
+                                <span class="client-title">Ramesh</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Vikram C', 'Fast, reliable, and super clean design work. Will definitely hire again.', 'VC', 'Product Manager')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Vikram</span>
+                                <span class="client-title">Chandran</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Meera N', 'Transformed our outdated website into a sleek, high-converting digital platform.', 'MN', 'Agency Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Meera</span>
+                                <span class="client-title">Nair</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate content for seamless infinite looping -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Suresh V', 'The attention to detail and responsiveness made this project a huge success.', 'SV', 'E-commerce Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Suresh</span>
+                                <span class="client-title">Verma</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Kavya R', 'Loved the minimalist Apple-inspired aesthetic. Exactly what our business needed.', 'KR', 'Creative Director')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Kavya</span>
+                                <span class="client-title">Ramesh</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Vikram C', 'Fast, reliable, and super clean design work. Will definitely hire again.', 'VC', 'Product Manager')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Vikram</span>
+                                <span class="client-title">Chandran</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-capsule"
+                            onclick="openModal('Meera N', 'Transformed our outdated website into a sleek, high-converting digital platform.', 'MN', 'Agency Owner')">
+                            <div class="avatar-circle"></div>
+                            <div class="capsule-info">
+                                <span class="client-name">Meera</span>
+                                <span class="client-title">Nair</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GLASSPOPUP MODAL -->
+        <div id="testimonialModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+            <div class="modal-glass-card">
+                <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+                <div class="modal-stars">★★★★★</div>
+                <p id="modalQuote" class="modal-quote"></p>
+                <div class="modal-author">
+                    <div id="modalAvatar" class="modal-avatar"></div>
+                    <div>
+                        <h4 id="modalName" class="modal-name"></h4>
+                        <span id="modalRole" class="modal-role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- PREMIUM AGENCY FOOTER -->

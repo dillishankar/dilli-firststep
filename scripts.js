@@ -278,3 +278,73 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDeck();
     startAutoLoop();
 });
+
+
+
+/**
+ * Opens the Glassmorphism Testimonial Modal
+ * @param {string} name - Client's name
+ * @param {string} quote - Client's testimonial message
+ * @param {string} avatarSrcOrInitials - Image path (e.g. 'images/client1.jpg') OR initials (e.g. 'DP')
+ * @param {string} role - Client's role or company
+ */
+function openModal(name, quote, avatarSrcOrInitials, role) {
+    const modalName = document.getElementById('modalName');
+    const modalQuote = document.getElementById('modalQuote');
+    const modalAvatar = document.getElementById('modalAvatar');
+    const modalRole = document.getElementById('modalRole');
+    const modal = document.getElementById('testimonialModal');
+
+    // Populate Modal Content
+    if (modalName) modalName.textContent = name;
+    if (modalQuote) modalQuote.textContent = `"${quote}"`;
+    if (modalRole) modalRole.textContent = role;
+
+    // Smart Avatar Handler (Handles image path vs initials)
+    if (modalAvatar) {
+        if (avatarSrcOrInitials.includes('/') || avatarSrcOrInitials.includes('.')) {
+            // It's an image path
+            modalAvatar.style.backgroundImage = `url('${avatarSrcOrInitials}')`;
+            modalAvatar.style.backgroundSize = 'cover';
+            modalAvatar.style.backgroundPosition = 'center';
+            modalAvatar.textContent = '';
+        } else {
+            // It's initials (fallback)
+            modalAvatar.style.backgroundImage = 'none';
+            modalAvatar.textContent = avatarSrcOrInitials;
+        }
+    }
+
+    // Show Modal & Lock Background Scroll
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Closes the Testimonial Modal
+ */
+function closeModal() {
+    const modal = document.getElementById('testimonialModal');
+    if (modal) modal.classList.remove('active');
+
+    // Restore Background Scroll
+    document.body.style.overflow = '';
+}
+
+/**
+ * Closes modal when clicking on the blurred background overlay
+ */
+function closeModalOnOverlay(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+        closeModal();
+    }
+}
+
+/**
+ * Keyboard Access: Close modal on 'Escape' key press
+ */
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
