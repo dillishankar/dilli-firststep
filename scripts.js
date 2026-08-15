@@ -385,22 +385,72 @@ function submitContactForm(event) {
         },
         body: formData.toString()
     })
-    .then(() => {
-        submitBtn.innerHTML = `<span>Sent Successfully!</span> <i class="fa-solid fa-check"></i>`;
-        statusMsg.className = "contact-status-msg success";
-        statusMsg.innerText = "Thank you! Your message has been sent.";
-        form.reset();
+        .then(() => {
+            submitBtn.innerHTML = `<span>Sent Successfully!</span> <i class="fa-solid fa-check"></i>`;
+            statusMsg.className = "contact-status-msg success";
+            statusMsg.innerText = "Thank you! Your message has been sent.";
+            form.reset();
 
-        setTimeout(() => {
+            setTimeout(() => {
+                submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane btn-arrow"></i>`;
+                submitBtn.disabled = false;
+            }, 4000);
+        })
+        .catch((error) => {
+            console.error("Error submitting contact form:", error);
             submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane btn-arrow"></i>`;
+            statusMsg.className = "contact-status-msg error";
+            statusMsg.innerText = "Failed to send message. Please try WhatsApp.";
             submitBtn.disabled = false;
-        }, 4000);
-    })
-    .catch((error) => {
-        console.error("Error submitting contact form:", error);
-        submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane btn-arrow"></i>`;
-        statusMsg.className = "contact-status-msg error";
-        statusMsg.innerText = "Failed to send message. Please try WhatsApp.";
-        submitBtn.disabled = false;
-    });
+        });
+}
+
+
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycby52NoVUj6aQ8h84sy_nfU0MDqD-2LDEG0jyNUNWr7WypJGKuhwwlUygKWgKtjlQ0zK/exec";
+
+async function submitContactForm(event) {
+    event.preventDefault();
+
+    const form = document.getElementById("websiteContactForm");
+    const button = document.getElementById("contactSubmitBtn");
+    const status = document.getElementById("contactFormStatus");
+
+    const data = {
+        name: document.getElementById("contactName").value.trim(),
+        number: document.getElementById("contactPhone").value.trim(),
+        email: document.getElementById("contactEmail").value.trim(),
+        subject: document.getElementById("contactSubject").value.trim(),
+        message: document.getElementById("contactMessage").value.trim()
+    };
+
+    button.disabled = true;
+    button.querySelector("span").textContent = "Sending...";
+
+    try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+            status.textContent = "Message sent successfully!";
+            form.reset();
+        } else {
+            throw new Error(result.message || "Something went wrong.");
+        }
+
+    } catch (error) {
+        console.error(error);
+        status.textContent =
+            "Message could not be sent. Please try again.";
+    }
+
+    button.disabled = false;
+    button.querySelector("span").textContent = "Send Message";
 }
