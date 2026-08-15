@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services Management — Dilli Web Studio</title>
-    <link rel="stylesheet" href="css/admin-common.css" />
-    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -40,13 +39,17 @@
 
         <div class="admin-main">
             <header class="admin-topbar">
-                <div class="topbar-left">
-                    <h1 class="page-title">Services</h1>
+                <div style="display: flex; align-items: center;">
+                    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" style="font-size: 1.25rem; font-weight: 700;">Services</h1>
                 </div>
             </header>
 
             <main class="admin-content-body">
-                <div class="glass-admin-card" style="display:flex; justify-content:space-between; align-items:center;">
+                <div class="glass-admin-card"
+                    style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
                     <div>
                         <h2 style="font-size: 1.2rem; font-weight:700;">Services Offered</h2>
                         <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage services deck on the agency
@@ -91,6 +94,9 @@
             </main>
         </div>
     </div>
+
+    <!-- Mobile Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Service Modal -->
     <div class="custom-modal-backdrop" id="serviceModal">

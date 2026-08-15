@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects Management — Dilli Web Studio</title>
-    <link rel="stylesheet" href="css/admin-common.css" />
-    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -15,7 +14,7 @@
         <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
             <div>
-                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo1.png" class="brand-logo-img"
                         alt="Logo" /></div>
                 <ul class="sidebar-menu">
                     <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
@@ -40,8 +39,11 @@
 
         <div class="admin-main">
             <header class="admin-topbar">
-                <div class="topbar-left">
-                    <h1 class="page-title">Projects</h1>
+                <div style="display: flex; align-items: center;">
+                    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" style="font-size: 1.25rem; font-weight: 700;">Projects</h1>
                 </div>
             </header>
 
@@ -61,7 +63,7 @@
                 <!-- Filters & Search Bar -->
                 <div class="glass-admin-card" style="display:flex; gap:1rem; flex-wrap:wrap; padding: 1rem;">
                     <input type="text" class="admin-input" placeholder="Search projects..."
-                        style="flex-grow:1; max-width: 320px;" />
+                        style="flex-grow:1; min-width: 200px;" />
                     <select class="admin-input" style="width: 160px;">
                         <option>All Categories</option>
                         <option>Full-Stack</option>
@@ -91,7 +93,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><img src="data/poster.png" class="table-img-thumb" alt="Self Made" /></td>
+                                    <td><img src="../data/poster.png" class="table-img-thumb" alt="Self Made" /></td>
                                     <td><strong>Self Made</strong></td>
                                     <td>Full-Stack</td>
                                     <td>HTML, CSS, JS</td>
@@ -114,6 +116,9 @@
             </main>
         </div>
     </div>
+
+    <!-- Mobile Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Add/Edit Project Form Modal -->
     <div class="custom-modal-backdrop" id="projectFormModal">

@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Settings — Dilli Web Studio</title>
-    <link rel="stylesheet" href="css/admin-common.css" />
-    <link rel="stylesheet" href="css/admin-settings.css" />
+    <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -19,30 +18,28 @@
                     <img src="../data/WebStudio-FinalLogo.png" alt="Dilli Web Studio" class="brand-logo-img" />
                 </div>
                 <ul class="sidebar-menu">
-                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
-                                class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i
-                                class="fa-solid fa-folder-open"></i> Projects</a></li>
-                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i
-                                class="fa-solid fa-layer-group"></i> Services</a></li>
-                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link"><i
-                                class="fa-solid fa-quote-right"></i> Testimonials</a></li>
-                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i
-                                class="fa-solid fa-envelope"></i> Messages</a></li>
-                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link active"><i
-                                class="fa-solid fa-sliders"></i> Settings</a></li>
+                    <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidebar-item"><a href="projects.html" class="sidebar-link"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+                    <li class="sidebar-item"><a href="services.html" class="sidebar-link"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                    <li class="sidebar-item"><a href="testimonials.html" class="sidebar-link"><i class="fa-solid fa-quote-right"></i> Testimonials</a></li>
+                    <li class="sidebar-item"><a href="messages.html" class="sidebar-link"><i class="fa-solid fa-envelope"></i> Messages</a></li>
+                    <li class="sidebar-item"><a href="settings.html" class="sidebar-link active"><i class="fa-solid fa-sliders"></i> Settings</a></li>
                 </ul>
             </div>
             <div style="padding: 1.25rem 0.85rem; border-top: 1px solid var(--border-subtle);">
-                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i
-                        class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <a href="login.html" class="sidebar-link" style="color: #EF4444;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
             </div>
         </aside>
 
         <!-- Main Content Area -->
         <div class="admin-main">
             <header class="admin-topbar">
-                <h1 style="font-size: 1.25rem; font-weight: 700;">Account & Site Settings</h1>
+                <div style="display: flex; align-items: center;">
+                    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 style="font-size: 1.25rem; font-weight: 700;">Account & Site Settings</h1>
+                </div>
                 <div class="topbar-right">
                     <div class="admin-profile-btn" id="profileBtn">
                         <img src="../data/pic-of-mee.png" alt="Dilli Shankar" class="admin-avatar" id="topbarAvatar" />
@@ -65,58 +62,46 @@
                     </button>
                 </div>
 
-                <!-- Tab 1: Profile & Avatar Settings -->
+                <!-- Tab 1: Profile Settings -->
                 <div id="profileTab" class="tab-content active">
                     <div class="glass-admin-card">
                         <div style="margin-bottom: 1.5rem;">
                             <h2 style="font-size: 1.1rem; font-weight: 800;">Profile Settings</h2>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Update your personal info and
-                                display picture across the dashboard.</p>
+                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Update your personal info and display picture across the dashboard.</p>
                         </div>
 
-                        <!-- Interactive Profile Picture Upload Section -->
-                        <div class="profile-upload-container">
-                            <div class="profile-avatar-wrapper">
-                                <img src="../data/pic-of-mee.png" id="avatarPreview" alt="Profile Avatar" />
-                                <label for="profileImgInput" class="avatar-edit-badge" title="Change Photo">
+                        <div class="profile-upload-container" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <div class="profile-avatar-wrapper" style="position: relative;">
+                                <img src="../data/pic-of-mee.png" id="avatarPreview" alt="Profile Avatar" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;" />
+                                <label for="profileImgInput" class="avatar-edit-badge" title="Change Photo" style="position: absolute; bottom: 0; right: 0; background: var(--accent-blue); padding: 0.3rem; border-radius: 50%; color: #fff; cursor: pointer;">
                                     <i class="fa-solid fa-camera"></i>
                                 </label>
-                                <input type="file" id="profileImgInput" accept="image/*" style="display: none;"
-                                    onchange="previewProfileImage(event)" />
+                                <input type="file" id="profileImgInput" accept="image/*" style="display: none;" onchange="previewProfileImage(event)" />
                             </div>
                             <div>
                                 <h3 style="font-size: 1rem; font-weight: 700;">Profile Picture</h3>
-                                <p
-                                    style="color: var(--text-secondary); font-size: 0.8rem; margin: 0.25rem 0 0.75rem 0;">
-                                    Supports JPG, PNG or WEBP (Max 2MB)</p>
-                                <div style="display: flex; gap: 0.5rem;">
-                                    <button type="button" class="btn-pill-admin btn-secondary-admin"
-                                        onclick="document.getElementById('profileImgInput').click()">
-                                        <i class="fa-solid fa-upload"></i> Choose Image
-                                    </button>
-                                </div>
+                                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0.25rem 0 0.75rem 0;">Supports JPG, PNG or WEBP (Max 2MB)</p>
+                                <button type="button" class="btn-pill-admin btn-secondary-admin" onclick="document.getElementById('profileImgInput').click()">
+                                    <i class="fa-solid fa-upload"></i> Choose Image
+                                </button>
                             </div>
                         </div>
 
                         <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 1.5rem 0;" />
 
                         <form onsubmit="handleProfileSave(event)">
-                            <div
-                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
                                 <div class="admin-form-group">
                                     <label>Admin Name</label>
-                                    <input type="text" class="admin-input" id="adminNameInput" value="Dilli Shankar"
-                                        required />
+                                    <input type="text" class="admin-input" id="adminNameInput" value="Dilli Shankar" required />
                                 </div>
                                 <div class="admin-form-group">
                                     <label>Email Address</label>
-                                    <input type="email" class="admin-input" id="adminEmailInput"
-                                        value="hello@dilliwebstudio.com" required />
+                                    <input type="email" class="admin-input" id="adminEmailInput" value="hello@dilliwebstudio.com" required />
                                 </div>
                                 <div class="admin-form-group">
                                     <label>Designation / Role</label>
-                                    <input type="text" class="admin-input"
-                                        value="Lead Full-Stack Developer & Designer" />
+                                    <input type="text" class="admin-input" value="Lead Full-Stack Developer & Designer" />
                                 </div>
                                 <div class="admin-form-group">
                                     <label>Location</label>
@@ -134,42 +119,32 @@
                 </div>
 
                 <!-- Tab 2: Security & Password -->
-                <div id="securityTab" class="tab-content">
+                <div id="securityTab" class="tab-content" style="display:none;">
                     <div class="glass-admin-card" style="max-width: 600px;">
                         <div style="margin-bottom: 1.5rem;">
                             <h2 style="font-size: 1.1rem; font-weight: 800;">Change Password</h2>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Ensure your account uses a
-                                strong and unique security password.</p>
+                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Ensure your account uses a strong and unique security password.</p>
                         </div>
 
                         <form onsubmit="handlePasswordUpdate(event)">
                             <div class="admin-form-group">
                                 <label>Current Password</label>
                                 <div class="password-input-wrapper">
-                                    <input type="password" class="admin-input" id="currPass" placeholder="••••••••"
-                                        required />
-                                    <i class="fa-regular fa-eye toggle-pass-icon"
-                                        onclick="togglePassVisibility('currPass', this)"></i>
+                                    <input type="password" class="admin-input" id="currPass" placeholder="••••••••" required />
                                 </div>
                             </div>
 
                             <div class="admin-form-group">
                                 <label>New Password</label>
                                 <div class="password-input-wrapper">
-                                    <input type="password" class="admin-input" id="newPass" placeholder="••••••••"
-                                        required />
-                                    <i class="fa-regular fa-eye toggle-pass-icon"
-                                        onclick="togglePassVisibility('newPass', this)"></i>
+                                    <input type="password" class="admin-input" id="newPass" placeholder="••••••••" required />
                                 </div>
                             </div>
 
                             <div class="admin-form-group" style="margin-bottom: 1.5rem;">
                                 <label>Confirm New Password</label>
                                 <div class="password-input-wrapper">
-                                    <input type="password" class="admin-input" id="confirmPass" placeholder="••••••••"
-                                        required />
-                                    <i class="fa-regular fa-eye toggle-pass-icon"
-                                        onclick="togglePassVisibility('confirmPass', this)"></i>
+                                    <input type="password" class="admin-input" id="confirmPass" placeholder="••••••••" required />
                                 </div>
                             </div>
 
@@ -180,17 +155,15 @@
                     </div>
                 </div>
 
-                <!-- Tab 3: Site Metadata Settings -->
-                <div id="siteTab" class="tab-content">
+                <!-- Tab 3: Site Metadata -->
+                <div id="siteTab" class="tab-content" style="display:none;">
                     <div class="glass-admin-card">
                         <div style="margin-bottom: 1.5rem;">
                             <h2 style="font-size: 1.1rem; font-weight: 800;">General Website Meta</h2>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage main portfolio identity
-                                and global SEO configurations.</p>
+                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage main portfolio identity and global SEO configurations.</p>
                         </div>
                         <form onsubmit="alert('Site settings updated!'); return false;">
-                            <div
-                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem;">
                                 <div class="admin-form-group">
                                     <label>Site Brand Title</label>
                                     <input type="text" class="admin-input" value="Dilli Web Studio" />
@@ -202,8 +175,7 @@
                             </div>
                             <div class="admin-form-group" style="margin-top: 1rem;">
                                 <label>Meta SEO Description</label>
-                                <textarea class="admin-input" rows="3"
-                                    style="resize: vertical;">Premium Web Development & UI/UX Design Studio based in Guindy, Chennai.</textarea>
+                                <textarea class="admin-input" rows="3" style="resize: vertical;">Premium Web Development & UI/UX Design Studio based in Guindy, Chennai.</textarea>
                             </div>
                             <button type="submit" class="btn-pill-admin btn-primary-admin" style="margin-top: 1rem;">
                                 <i class="fa-solid fa-floppy-disk"></i> Update Site Meta
@@ -215,41 +187,27 @@
         </div>
     </div>
 
+    <!-- Mobile Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <script src="js/admin-script.js"></script>
     <script>
-        // Tab Switcher Logic
         function switchTab(tabId, btnElement) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
             document.querySelectorAll('.settings-tab-btn').forEach(btn => btn.classList.remove('active'));
 
-            document.getElementById(tabId).classList.add('active');
+            document.getElementById(tabId).style.display = 'block';
             btnElement.classList.add('active');
         }
 
-        // Live Profile Image Preview
         function previewProfileImage(event) {
             const reader = new FileReader();
             reader.onload = function () {
-                const output = document.getElementById('avatarPreview');
+                document.getElementById('avatarPreview').src = reader.result;
                 const topbarAvatar = document.getElementById('topbarAvatar');
-                output.src = reader.result;
                 if (topbarAvatar) topbarAvatar.src = reader.result;
             };
-            if (event.target.files[0]) {
-                reader.readAsDataURL(event.target.files[0]);
-            }
-        }
-
-        // Password Show/Hide Toggle
-        function togglePassVisibility(inputId, icon) {
-            const input = document.getElementById(inputId);
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.classList.replace('fa-eye', 'fa-eye-slash');
-            } else {
-                input.type = 'password';
-                icon.classList.replace('fa-eye-slash', 'fa-eye');
-            }
+            if (event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
         }
 
         function handleProfileSave(e) {

@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Messages — Dilli Web Studio</title>
-    <link rel="stylesheet" href="css/admin-common.css" />
-    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -15,7 +14,7 @@
         <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
             <div>
-                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo.png" class="brand-logo-img"
+                <div class="sidebar-header"><img src="../data/WebStudio-FinalLogo1.png" class="brand-logo-img"
                         alt="Logo" /></div>
                 <ul class="sidebar-menu">
                     <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i
@@ -40,8 +39,11 @@
 
         <div class="admin-main">
             <header class="admin-topbar">
-                <div class="topbar-left">
-                    <h1 class="page-title">Inquiries & Messages</h1>
+                <div style="display: flex; align-items: center;">
+                    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" style="font-size: 1.25rem; font-weight: 700;">Inquiries & Messages</h1>
                 </div>
             </header>
 
@@ -80,6 +82,9 @@
             </main>
         </div>
     </div>
+
+    <!-- Mobile Backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Message Details Modal -->
     <div class="custom-modal-backdrop" id="viewMessageModal">
